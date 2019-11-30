@@ -7,7 +7,7 @@ import searchIcon from './../../images/searchIcon.svg';
 import AccentButton from '../reusable/AccentButton';
 
 const Header = ({ siteTitle }) => (
-  <header>
+  <header className="header-container">
     <Navbar className="meta-navbar">
       <Nav className="meta mr-auto ml-md-5 ml-md-5 ml-xl-6">
         <Link className="nav-link pl-0" to="/about">О нас</Link>

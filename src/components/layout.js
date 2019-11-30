@@ -15,7 +15,8 @@ import Footer from './footer/footer';
 const Layout = ({ children }) => {
   return (
     <>
-      { (window.innerWidth > 768 && <Header />) || <HeaderMobile />  }
+      <Header />
+      <HeaderMobile />
       <main>{children}</main>
       <Footer />
     </>

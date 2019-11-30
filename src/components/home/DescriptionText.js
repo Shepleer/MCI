@@ -19,19 +19,19 @@ const text = `Успешная иммиграция наших клиентов 
 
 const DescriptionText = ({ children, }) => {
 
-  let image;
-  const { innerWidth } = window;
-  if (innerWidth > 640) {
-    image = peopleBig;
-  } else if (innerWidth < 640) {
-    image = peopleMedium;
-  } else if (innerWidth < 460) {
-    image = peopleSmall;
-  }
+  // let image;
+  // const { innerWidth } = window;
+  // if (innerWidth > 640) {
+  //   image = peopleBig;
+  // } else if (innerWidth < 640) {
+  //   image = peopleMedium;
+  // } else if (innerWidth < 460) {
+  //   image = peopleSmall;
+  // }
 
   return (
     <div className="descriptionContainer">
-      <Image className="description-text-image" src={image} />
+      <Image className="description-text-image" src={peopleMedium} />
       <div className="text-container">
         <h2>Иммиграция в Канаду</h2>
         <p>Успешная иммиграция наших клиентов - это лучшая оценка нашей работы. <br/><br/>
