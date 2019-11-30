@@ -1,0 +1,35 @@
+$accentColor: #E1493A
+$ttt: rgba(225, 73, 58, 1)
+.accent-button
+  display: inline-flex
+  align-self: center
+  border: 1px solid $accentColor
+  border-radius: 30px
+  width: 280px
+  height: 52px
+  background-color: $accentColor
+  color: #FFFFFF
+  text-align: center
+  align-items: center
+  justify-content: center
+  @media screen and (max-width: 325px)
+    width: 90%
+    min-width: 250px
+
+.accent-button-text
+  font-size: 12px !important
+  font-weight: normal !important
+  text-align: center
+  margin-bottom: 0 !important
+
+.accent-button-shadow
+  box-shadow: 0px 18px 40px rgba(235, 87, 87, 0.35)
+
+.accent-button-md-shadow
+  box-shadow: 0px 18px 40px rgba(235, 87, 87, 0.35)
+  @media screen and (max-width: 340px)
+    box-shadow: none
+
+.accent-button-transparent
+  background-color: transparent
+  color: $accentColor !important

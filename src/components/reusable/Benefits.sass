@@ -1,0 +1,47 @@
+
+$containerBackground: #F9F9F9
+$titleColor: #2C384E
+$textColor: #656769
+
+.benefits-container
+  background-color: $containerBackground
+  display: flex
+  flex: 1
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding: 137px
+  .row
+    padding: 25px
+
+.benefit
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background-color: #FFFFFF
+  align-items: center
+  text-align: center
+  border-radius: 20px
+  height: 255px
+  width: 255px
+  box-shadow: 0px 12px 20px rgba(189, 189, 189, 0.27)
+  padding-top: 20px
+  .image-container
+    display: flex
+    height: 100px
+    width: 100px
+    align-items: center
+    justify-content: center
+  h6
+    color: $titleColor
+    font-size: 16px
+  p
+    color: $textColor
+    font-size: 13px
+    text-align: center
+    padding-right: 30px
+    padding-left: 30px
+
+
+.benefit:hover
+  box-shadow: 0px 18px 40px rgba(235, 87, 87, 0.35)

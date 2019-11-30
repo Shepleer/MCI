@@ -1,0 +1,34 @@
+$dropdownArrow: url('../../../../../images/other/dropdown-arrow.png')
+
+.phone-input-wrapper
+  display: flex
+  align-items: center
+
+  width: 290px
+  height: 52px
+  box-shadow: 0px 18px 40px rgba(169, 175, 186, 0.35)
+
+.phone-input
+  height: 52px
+  border: 1px solid #ECECEC
+  font-size: 12px
+  border-radius: 0 100px 100px 0
+
+.phone-input-dropdown
+  display: flex
+  flex-direction: row
+  align-items: center
+  height: 52px
+  border: 1px solid #ECECEC
+  border-radius: 100px 0 0 100px
+  &::after
+    content: none
+
+.dropdown-arrow
+  margin: 0
+
+.phone-input-dropdown-menu
+  width: auto
+  background-color: white
+  max-height: 200px
+  overflow-y: scroll

@@ -1,0 +1,117 @@
+$disabledColor: #999999
+$activeColor: #E1493A
+
+.faq-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 900px
+  h4
+    margin-bottom: 90px
+
+//.question-wrapper
+//  display: flex
+//  flex-direction: column
+//  justify-content: center
+//  max-width: 769px
+//  box-shadow: 0px 12px 20px rgba(189, 189, 189, 0.27)
+
+//.question
+//  display: flex
+//  flex-direction: row
+//  justify-content: flex-start
+//  h5
+//    margin-right: auto
+//    margin-left: 0
+
+.question
+  background-color: #FFFFFF
+  border-radius: 10px !important
+  border: none
+  box-shadow: 0px 4px 20px rgba(189, 189, 189, 0.25)
+  margin: 15px 0
+
+.question-card
+  display: flex
+  align-items: center
+  text-align: center
+  justify-content: start
+  margin: 0
+  padding: 0
+  width: 880px
+  height: 60px
+  border-bottom: none
+  background-color: inherit
+  h5
+    color: #2C384E
+    font-size: 18px
+    font-weight: 700
+    margin: 0
+  @media screen and (max-width: 769px)
+    max-width: 622px
+    width: auto
+    margin-right: 72px
+    margin-left: 72px
+
+.question-collapse-button
+  width: 28px
+  height: 28px
+  padding: 0
+  border: none
+  margin-right: 60px
+  margin-left: auto
+  transition: 400ms
+  img
+    margin: 0
+  &.disabled
+    transform: rotate(180deg)
+    filter: grayscale(100)
+  &.active
+    transform: rotate(0deg)
+    filter: grayscale(0)
+  @media screen and (max-width: 768px)
+    margin-right: 20px
+
+.question-indicator
+  height: 15px
+  width: 15px
+  border-radius: 50%
+  background-color: #999999
+  margin-left: 60px
+  margin-right: 15px
+  @media screen and (max-width: 768px)
+    margin-left: 20px
+
+.question-indicator.active
+  transition: background-color 200ms
+  background-color: red
+
+.question-indicator.disabled
+  transition: background-color 200ms
+  background-color: #999999
+
+.question-text
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  justify-content: flex-start
+  padding: 0 60px
+  width: 880px
+  font-size: 14px
+  font-weight: 300
+  color: #656769
+  @media screen and (max-width: 769px)
+    width: auto
+    margin-right: 72px
+    margin-left: 72px
+    padding: 0 20px
+
+//.active
+//  background-color: $activeColor
+
+//.disabled
+//  background-color: $disabledColor
+
+.hidden
+  display: none

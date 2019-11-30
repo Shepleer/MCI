@@ -1,21 +1,27 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import './index.sass';
+import BenefitsContainer from './../components/home/Benefits';
+import GreetingBanner from '../components/home/GreetingBanner';
+import ServicesCarousel from '../components/home/ServicesCarousel';
+import TestBanner from '../components/home/TestBanner';
+import DescriptionText from '../components/home/DescriptionText';
+import ConsultationBanner from '../components/reusable/consultationBanner/ConsultationBanner';
+import ReviewsCarousel from '../components/reviews/reviewsCarousel';
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <GreetingBanner />
+    <BenefitsContainer />
+    <ServicesCarousel />
+    <TestBanner />
+    <DescriptionText />
+    <ConsultationBanner />
+    <ReviewsCarousel />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

@@ -1,0 +1,94 @@
+$footerColor: #F9F9F9
+$accentColor: #E44C3B
+$fontColor: #8C939F
+$footerBorderColor: #ECEDF3
+$footerBackground: url("./../../images/other/footerBackground.png")
+
+footer
+  display: flex
+  position: relative
+  flex-direction: column
+  background-color: $footerColor
+  border-top: 1px solid $footerBorderColor
+  font-size: 14px
+  font-weight: 400
+  color: $fontColor
+  a
+    color: $fontColor
+  //&:before
+  //  position: absolute
+  //  bottom: 0
+  //  left: 0
+  //  margin-bottom: 412px
+  //  z-index: -1
+  //  content: ''
+  //  min-height: 509px
+  //  width: 100%
+  //  background-image: $footerBackground
+  //  background-position: top
+  //  background-repeat: no-repeat
+
+.footer-container
+  display: flex
+  padding-top: 85px
+
+.footer-column
+  display: flex
+  flex-direction: column
+
+#footer-phone-number
+  font-size: 24px
+  font-weight: 700
+
+#up-button
+  width: 52px
+  height: 52px
+  align-self: flex-end
+  justify-self: flex-end
+  background-color: transparent
+  border: none
+  background-image: url("./../../images/footer/up-arrow.png")
+
+#footer-meta-links
+  @media screen and (max-width: 768px)
+    display: flex
+    flex-direction: column
+
+#footer-links
+  @media screen and (max-width: 768px)
+    flex-direction: column
+
+#footer-copy-social
+  @media screen and (max-width: 768px)
+    flex-direction: column-reverse
+    justify-content: space-between
+    height: 150px
+  @media screen and (min-width: 768px) and (max-width: 1280px)
+    padding-left: 48px
+    padding-right: 48px
+
+.copyright
+  display: flex
+
+.social
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  justify-items: center
+
+.ml-xl-up-button
+  @media screen and (min-width: 1280px)
+    margin-left: 275px
+
+.mr-xl-footer-links
+  @media screen and (min-width: 1280px)
+    margin-right: 230px
+
+.up-button-mobile
+  background-color: $accentColor
+  border: none
+  padding-top: 4px
+  padding-bottom: 4px
+  justify-content: center
+
