@@ -1,0 +1,111 @@
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 500px;
+  color: #2C384E;
+}
+.review-container h4 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.review-container p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.review-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 880px;
+  margin: 0 auto 15px;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(189, 189, 189, 0.25);
+}
+@media screen and (max-width: 970px) {
+  .review-wrapper {
+    width: 90%;
+  }
+}
+
+.review {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0 90px;
+  min-height: 400px;
+}
+@media screen and (max-width: 768px) {
+  .review {
+    padding: 0 40px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media screen and (max-width: 500px) {
+  .review {
+    align-items: center;
+  }
+}
+
+.review-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: start;
+  margin-left: 42px;
+}
+@media screen and (max-width: 768px) {
+  .review-description {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .review-description {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.reviewCarouselSlide {
+  width: 100%;
+  margin-bottom: 100px;
+}
+.reviewCarouselSlide .carousel-control-prev {
+  opacity: 1;
+}
+.reviewCarouselSlide .carousel-control-prev span {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  background-image: url("./../../images/reviews/rewiews-left-arrow.png");
+  background-size: auto;
+  background-position: center;
+  box-shadow: 0 4px 4px rgba(153, 153, 153, 0.25);
+}
+.reviewCarouselSlide .carousel-control-next {
+  opacity: 1;
+}
+.reviewCarouselSlide .carousel-control-next span {
+  min-width: 56px;
+  width: 56px;
+  height: 56px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  background-image: url("./../../images/reviews/rewiews-right-arrow.png");
+  background-size: auto;
+  background-position: center;
+  box-shadow: 0 4px 4px rgba(153, 153, 153, 0.25);
+}
+
+/*# sourceMappingURL=reviews.css.map */

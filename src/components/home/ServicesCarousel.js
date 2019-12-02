@@ -17,7 +17,18 @@ const ServicesCarousel = () => {
     <div className="services-container">
       <h4>Наши услуги</h4>
       <p>Каждый день мы работаем на результат. Каждый клиент важен для нас</p>
-      <Carousel indicators={false} interval={null}>
+      <div className="services-row">
+        <Service image={client} text="Консультация" />
+        <Service image={dice} text="Оценка шансов" />
+        <Service image={airplane} text="Встреча в аэропорту" />
+      </div>
+      <div className="services-row">
+        <Service image={client} text="Консультация" />
+        <Service image={dice} text="Оценка шансов" />
+        <Service image={airplane} text="Встреча в аэропорту" />
+      </div>
+
+      <Carousel className="services-carousel" indicators={false} interval={null}>
         <Carousel.Item>
           <Service image={client} text="Консультация" />
         </Carousel.Item>

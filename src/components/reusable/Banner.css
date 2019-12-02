@@ -1,0 +1,19 @@
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(189, 189, 189, 0.27);
+  border: none;
+}
+.banner-container h1 {
+  color: #2C384E;
+}
+.banner-container p {
+  font-size: 24px;
+  color: #656769;
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=Banner.css.map */

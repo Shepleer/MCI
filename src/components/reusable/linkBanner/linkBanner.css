@@ -1,0 +1,32 @@
+.link-banner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #8C939F;
+  border-radius: 20px;
+  max-width: 880px;
+  min-height: 267px;
+  margin: 0 auto;
+}
+.link-banner h5 {
+  margin-bottom: 22px;
+  margin-top: auto;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2C384E;
+}
+.link-banner .link-banner-text {
+  max-width: 564px;
+  margin: 0 15px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #585B61;
+}
+.link-banner a {
+  margin-top: 22px;
+  margin-bottom: auto;
+}
+
+/*# sourceMappingURL=linkBanner.css.map */

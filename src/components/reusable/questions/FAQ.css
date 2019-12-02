@@ -1,0 +1,112 @@
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 900px;
+}
+.faq-container h4 {
+  margin-bottom: 90px;
+}
+
+.questions-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question {
+  background-color: #FFFFFF;
+  border-radius: 10px !important;
+  border: none;
+  width: 90%;
+  max-width: 880px;
+  box-shadow: 0 4px 20px rgba(189, 189, 189, 0.25);
+  margin: 15px 15px;
+  padding: 0 60px;
+}
+@media screen and (max-width: 500px) {
+  .question {
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.question-card {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: start;
+  justify-self: center;
+  width: 100%;
+  max-width: 880px;
+  padding: 0;
+  height: 60px;
+  border-bottom: none;
+  background-color: inherit;
+}
+.question-card h5 {
+  color: #2C384E;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  margin: 0;
+}
+@media screen and (max-width: 500px) {
+  .question-card h5 {
+    font-size: 13px;
+  }
+}
+
+.question-collapse-button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  margin-left: auto;
+  transition: 400ms;
+}
+.question-collapse-button img {
+  margin: 0;
+}
+.question-collapse-button.disabled {
+  transform: rotate(180deg);
+  filter: grayscale(100);
+}
+.question-collapse-button.active {
+  transform: rotate(0deg);
+  filter: grayscale(0);
+}
+
+.question-indicator {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #999999;
+  margin-right: 15px;
+}
+
+.question-indicator.active {
+  transition: background-color 200ms;
+  background-color: red;
+}
+
+.question-indicator.disabled {
+  transition: background-color 200ms;
+  background-color: #999999;
+}
+
+.question-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: #656769;
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=FAQ.css.map */

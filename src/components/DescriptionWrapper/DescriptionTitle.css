@@ -1,0 +1,19 @@
+.description-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 205px;
+}
+.description-title-container h2 {
+  font-size: 46px;
+}
+@media screen and (max-width: 500px) {
+  .description-title-container h2 {
+    margin-top: 70px;
+    font-size: 24px;
+  }
+}
+
+/*# sourceMappingURL=DescriptionTitle.css.map */

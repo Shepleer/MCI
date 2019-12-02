@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel, Image } from 'react-bootstrap';
 import './reviews.sass';
 import reviewWoman from './../../images/other/review-woman.jpg';
+import AccentButton from '../reusable/AccentButton';
 
 const Review = ({ name="Евгения" }) => {
   return (
@@ -21,19 +22,14 @@ const Review = ({ name="Евгения" }) => {
 };
 
 const ReviewsCarousel = () => {
+
+
+
   return (
     <div className="review-container">
       <h4>Отзывы</h4>
       <p>Каждый день мы работаем на результат. Каждый клиент важен для нас</p>
-      <div>
-        <div className="col-1 d-flex align-items-center justify-content-center">
-          <a href="#" role="button" data-slide="prev">
-            <div className="carousel-nav-icon">
-            HELLO
-            </div>
-          </a>
-        </div>
-        <Carousel id="reviewCarouselSlide" indicators={false} interval={null} controls={false}>
+        <Carousel className="reviewCarouselSlide" indicators={false} interval={null} controls={true}>
           <Carousel.Item>
             <Review name="dasd" />
           </Carousel.Item>
@@ -44,8 +40,7 @@ const ReviewsCarousel = () => {
             <Review />
           </Carousel.Item>
         </Carousel>
-        <div></div>
-      </div>
+      <AccentButton transparent />
     </div>
   );
 };

@@ -1,0 +1,34 @@
+.navbar-mobile {
+  box-shadow: 0 4px 25px rgba(189, 189, 189, 0.25);
+}
+@media screen and (max-width: 768px) {
+  .navbar-mobile {
+    display: none;
+  }
+}
+
+.nav-wrapper {
+  padding: 0;
+}
+
+.navbar-mobile-toggle {
+  border: none;
+}
+
+.navbar-toggler:hover {
+  outline: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+}
+
+.navbar-toggler:active {
+  outline: none;
+}
+
+.navbar-mobile-menu {
+  padding-left: 50px;
+}
+
+/*# sourceMappingURL=headerMobile.css.map */

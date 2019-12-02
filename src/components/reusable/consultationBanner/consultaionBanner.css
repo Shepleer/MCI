@@ -1,0 +1,105 @@
+.consultation-banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 130px 0;
+  color: #2C384E;
+}
+
+.consultation-banner-title {
+  padding: 0 70px;
+  font-size: 30px;
+  font-weight: 700;
+}
+@media screen and (max-width: 500px) {
+  .consultation-banner-title {
+    font-size: 24px;
+    padding: 0 15px;
+  }
+}
+
+.consultation-banner-description {
+  padding: 0 70px;
+  font-weight: 300;
+  font-size: 18px;
+}
+@media screen and (max-width: 500px) {
+  .consultation-banner-description {
+    padding: 0 15px;
+    font-size: 13px;
+  }
+}
+
+.consultation-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 70px;
+}
+@media screen and (max-width: 768px) {
+  .consultation-wrapper {
+    flex-direction: column;
+  }
+}
+
+#consultation-step-center {
+  margin-top: 50px;
+}
+@media screen and (max-width: 768px) {
+  #consultation-step-center {
+    margin-top: 0;
+  }
+}
+
+.consultation-step-container {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.consultation-banner-curve {
+  margin: 0 15px;
+}
+@media screen and (max-width: 768px) {
+  .consultation-banner-curve {
+    display: none;
+  }
+}
+
+.consultation-step-number {
+  text-align: start;
+  font-size: 100px;
+  color: #EDEDED;
+}
+
+.consultation-step-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -32px;
+  margin-top: 9px;
+  z-index: 1;
+  width: 83px;
+  height: 83px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: 0 12px 20px rgba(198, 57, 43, 0.27);
+}
+.consultation-step-image img {
+  margin: 0;
+}
+
+.consultation-step-title {
+  padding-top: 50px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=consultaionBanner.css.map */

@@ -19,7 +19,7 @@ const Question = ({ eventKey, title, text }) => {
         <div className={indicatorClass} />
         <h5>{title}</h5>
         <button className={buttonClass} onClick={hadleQuestionCollapse}>
-          <img src={collapseArrow} />
+          <img src={collapseArrow} alt="collapse-arrow" />
         </button>
       </Card.Header>
       <Accordion.Collapse className="question-text" eventKey={eventKey}>
@@ -31,7 +31,7 @@ const Question = ({ eventKey, title, text }) => {
 
 const FAQ = () => {
   return (
-    <Accordion defaultActiveKey="0">
+    <Accordion className="questions-wrapper" defaultActiveKey="0">
       <Question eventKey="0" title="Хочу иммигрировать, лол" text="Каждый иммигрант в Канаде однозначно разный, и соответственно методы для
       иммиграции также разные. Все зависит от личных качеств, жизненной ситуации, поставленных целей в карьере, и
       даже семейных обстоятельств. Учитывая все обстоятельства, Канада имеет превосходные федеральные и
