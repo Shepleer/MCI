@@ -13,7 +13,7 @@ const SubmitButton = ({ title, className='accent-button', type='submit', id='', 
   }
 
   return (
-    <button className={className} id={id} type={type} >
+    <button className={className} type={type} id={id} >
       <p className="accent-button-text" >{title}</p>
     </button>
   );
