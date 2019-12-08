@@ -8,7 +8,7 @@ import SubmitButton from '../inputs/submitButton/SubmitButton';
 
 const ContactForm = () => {
   return (
-    <form className="contact-form" netlify>
+    <form className="contact-form" name="contact" method="POST" data-netlify="true">
       <div className="contact-form-main">
         <div className="contact-info">
           <FullNameInput />
