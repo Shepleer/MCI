@@ -1,0 +1,45 @@
+.one-line-input {
+  max-width: 420px;
+  max-height: 74px;
+  height: 100%;
+  width: 100%;
+  background-color: #F7F8FA;
+  border: 1px solid #ECECEC;
+  box-shadow: 0 18px 40px rgba(169, 175, 186, 0.35);
+  border-radius: 1100px;
+  font-size: 14px;
+  padding: 30px;
+}
+@media screen and (max-width: 1280px) and (min-width: 500px) {
+  .one-line-input {
+    max-height: 52px;
+    max-width: 290px;
+  }
+}
+
+.multiline-input {
+  width: 100%;
+  min-height: 215px;
+  resize: none;
+  background: #F7F8FA;
+  border: 1px solid #ECECEC;
+  box-shadow: 0 18px 40px rgba(169, 175, 186, 0.35);
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 30px;
+  padding-top: 25px;
+}
+
+.input-fieldset {
+  border: none;
+  margin: 0;
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.input-legend {
+  font-size: 14px;
+  color: #2C384E;
+}
+
+/*# sourceMappingURL=inputs.css.map */

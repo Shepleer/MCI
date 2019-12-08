@@ -4,15 +4,28 @@
   align-items: center
   justify-content: center
   text-align: center
-  margin: 130px 0
+  padding: 50px
   background-color: #F9F9F9
   color: #2C384E
+  font-weight: 300
   h4
+    margin: 15px
+    max-width: 850px
     font-size: 30px
     font-weight: 700
+    @media screen and (max-width: 500px)
+      font-size: 18px
 
+.description-label
+  font-size: 18px
+
+.policy-label
+  font-size: 13px
 
 .feedback-call-form
   display: flex
   flex-direction: row
-
+  flex-wrap: wrap
+  justify-content: center
+  .accent-button
+    margin: 15px
