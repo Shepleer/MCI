@@ -8,7 +8,7 @@
   border-radius: 20px;
   max-width: 880px;
   min-height: 267px;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 .link-banner h5 {
   margin-bottom: 22px;
@@ -27,6 +27,21 @@
 .link-banner a {
   margin-top: 22px;
   margin-bottom: auto;
+}
+@media screen and (max-width: 1000px) {
+  .link-banner {
+    margin: 25px 75px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .link-banner {
+    margin: 25px 15px;
+  }
+}
+
+.link-banner-background {
+  background: #F9F9F9;
+  border: none;
 }
 
 /*# sourceMappingURL=linkBanner.css.map */

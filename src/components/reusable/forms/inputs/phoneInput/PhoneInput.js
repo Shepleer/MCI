@@ -23,7 +23,7 @@ const PhonePrefixItem = ({ value, eventKey }) => {
   );
 };
 
-const PhoneInput = () => {
+const PhoneInput = ({ legend }) => {
 
   const values = ['+6', '+5', '+6', '+5', '+6', '+5'];
 
@@ -35,25 +35,31 @@ const PhoneInput = () => {
   }, [values, setSelectedPhonePrefix]);
 
   return (
-    <div className="phone-input-wrapper">
-      <Dropdown onSelect={handleSelect}>
-        <Dropdown.Toggle as={PhonePrefixToggle} selectedValue={selectedPhonePrefix} />
-        <Dropdown.Menu className="phone-input-dropdown-menu">
-          <Dropdown.Item eventKey="0">
-            +0
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="1">
-            +5
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="2">
-            +2
-          </Dropdown.Item>
-          <Dropdown.Item eventKey="3">
-            +7
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      <input type="tel" className="phone-input"  />
+    <div className="phone-input-container">
+      {
+        legend &&
+        <p className="phone-input-legend">Контактный телефон</p>
+      }
+      <div className="phone-input-wrapper">
+        <Dropdown onSelect={handleSelect}>
+          <Dropdown.Toggle as={PhonePrefixToggle} selectedValue={selectedPhonePrefix} />
+          <Dropdown.Menu className="phone-input-dropdown-menu">
+            <Dropdown.Item eventKey="0">
+              +0
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="1">
+              +5
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="2">
+              +2
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3">
+              +7
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <input type="tel" className="phone-input" />
+      </div>
     </div>
   );
 };

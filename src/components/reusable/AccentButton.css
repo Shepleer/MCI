@@ -19,6 +19,7 @@
 }
 
 .accent-button-text {
+  text-transform: uppercase;
   font-size: 12px !important;
   font-weight: normal !important;
   text-align: center;

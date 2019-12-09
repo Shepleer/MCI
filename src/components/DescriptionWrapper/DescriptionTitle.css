@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: #2C384E;
+  font-weight: 700;
   height: 205px;
 }
 .description-title-container h2 {

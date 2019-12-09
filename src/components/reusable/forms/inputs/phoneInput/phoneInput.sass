@@ -5,9 +5,11 @@ $dropdownArrow: url('../../../../../images/other/dropdown-arrow.png')
   align-items: center
   width: 290px
   height: 52px
-  margin: 15px
+  margin: 0
   border-radius: 100px
   box-shadow: 0 18px 40px rgba(169, 175, 186, 0.35)
+  @media screen and (max-width: 760px)
+    width: 100%
 
 .phone-input
   width: 100%
@@ -15,6 +17,12 @@ $dropdownArrow: url('../../../../../images/other/dropdown-arrow.png')
   border: 1px solid #ECECEC
   font-size: 12px
   border-radius: 0 100px 100px 0
+  background-color: #F7F8FA
+
+.phone-input-legend
+  font-size: 14px
+  color: #2C384E
+  margin-bottom: 9px
 
 .phone-input-dropdown
   display: flex
@@ -24,6 +32,7 @@ $dropdownArrow: url('../../../../../images/other/dropdown-arrow.png')
   border: 1px solid #ECECEC
   border-radius: 100px 0 0 100px
   font-size: 12px
+  background-color: #F7F8FA
   p
     margin-bottom: 0
     margin-right: 10px

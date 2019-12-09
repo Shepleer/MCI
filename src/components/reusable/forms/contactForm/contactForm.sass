@@ -7,7 +7,7 @@
 .contact-form-wrapper
   width: 100%
   max-width: 1087px
-  @media screen and (max-width: 1280px) and (min-width: 500px)
+  @media screen and (max-width: 1280px) and (min-width: 770px)
     max-width: 765px
 
 
@@ -15,25 +15,31 @@
   display: flex
   flex-direction: column
   width: 100%
+  height: 100%
   max-width: 1087px
-  height: 476px
+  max-height: 476px
   margin-left: 10px
   box-shadow: 0 4px 20px rgba(189, 189, 189, 0.25)
   border-radius: 10px
   padding: 58px 110px
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    padding: 40px 70px
+    max-height: 334px
 
 .contact-form-main
   display: flex
   flex-direction: row
-  min-height: 215px
+  height: 100%
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    width: 640px
+    max-height: 180px
+
 
 
 .submit-button-field
-  margin-top: 40px
-  button
-    @media screen and (max-width: 1280px) and (min-width: 500px)
-      width: 205px
-      height: 40px
+  margin-top: 57px
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    margin-top: 40px
 
 .contact-info
   display: flex
@@ -41,4 +47,30 @@
   height: 100%
   justify-content: space-between
   margin-right: 30px
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    width: 290px
+    min-height: 180px
+    margin: 0
+    margin-right: 30px
 
+#contact-form-message-fieldset
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    max-width: 300px
+    height: 150px
+    min-height: 180px
+
+#contact-form-message-textarea
+  min-height: 150px
+
+#contact-form-name-input
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    height: 52px
+
+#contact-form-email-input
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    max-height: 52px
+
+#contact-form-submit-button
+  @media screen and (max-width: 1280px) and (min-width: 770px)
+    width: 205px
+    height: 40px

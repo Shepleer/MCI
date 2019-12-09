@@ -1,10 +1,14 @@
 import React from 'react';
 
-const FullNameInput = () => {
+const FullNameInput = ({ id='', className='one-line-input', fieldsetId='', fill }) => {
+  if (fill) {
+    className += ' fill-input';
+  }
+
   return (
-    <fieldset className="input-fieldset">
+    <fieldset id={fieldsetId} className="input-fieldset">
       <legend className="input-legend">Ваша фамилия имя и отчество</legend>
-      <input className="one-line-input" name="full-name" type="text" placeholder="Иванов Иван Иванович" required />
+      <input id={id} className={className} name="full-name" type="text" placeholder="Иванов Иван Иванович" required />
     </fieldset>
   );
 };

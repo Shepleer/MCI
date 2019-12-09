@@ -2,12 +2,16 @@ import React from 'react';
 import './linkBanner.sass';
 import AccentButton from '../AccentButton';
 
-const LinkBanner = ({ title, text }) => {
+const LinkBanner = ({ title, text, linkTitle, to, background, className = 'link-banner' }) => {
+
+  if (background) {
+    className += ' link-banner-background';
+  }
   return (
-    <div className="link-banner">
+    <div className={className}>
       <h5>{title}</h5>
       <p className="link-banner-text">{text}</p>
-      <AccentButton transparent />
+      <AccentButton title={linkTitle} to={to} transparent />
     </div>
   );
 };
