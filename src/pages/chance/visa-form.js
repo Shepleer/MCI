@@ -124,7 +124,7 @@ const VisaForm = () => {
   return (
     <Layout>
       <DescriptionTitle title="Оценка шансов на получение визы" />
-      <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы">
+      <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Visa Form">
         <div className="odds-form-line">
           <SingleLineInput
             legend="Контактный E-mail"
