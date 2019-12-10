@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/layout';
 import DescriptionTitle from '../../components/DescriptionWrapper/DescriptionTitle';
 import OddsFormWrapper from '../../components/reusable/forms/oddsForm/OddsFormWrapper';
@@ -143,6 +143,8 @@ const HAVE_CANADA_EDUCATION = {
 };
 
 const ImmigrationForm = () => {
+
+
   return (
     <Layout>
       <DescriptionTitle title="Оценка шансов на получение визы" />

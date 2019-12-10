@@ -1,20 +1,49 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import './contactForm.sass';
 import './../inputs/inputs.sass';
-import EmailInput from '../inputs/SingleLineInput/SingleLineImput';
-import FullNameInput from '../inputs/fullNameInput/FullNameInput';
-import CommentsInput from '../inputs/MultiLineInput/MultiLineInput';
+import SingleLineInput from '../inputs/SingleLineInput/SingleLineImput';
+import MultiLineInput from '../inputs/MultiLineInput/MultiLineInput';
 import SubmitButton from '../inputs/submitButton/SubmitButton';
 
 const ContactForm = () => {
+
+  const [fields, setFields] = useState({fullName: ''});
+
+  const updateFormField = useCallback(e => {
+    console.log(e.target.value);
+    setFields(prevState => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+
+  }, [setFields]);
+
   return (
     <form className="contact-form" name="contact" method="POST" data-netlify="true">
       <div className="contact-form-main">
         <div className="contact-info">
-          <FullNameInput id="contact-form-name-input" />
-          <EmailInput id="contact-form-email-input" />
+          <SingleLineInput
+            onChange={updateFormField}
+            value={fields.fullName || ''}
+            legend="Ваша фамилия имя и отчество"
+            name="fullName"
+            placeholder="Иванов Иван Иванович"
+            required
+            fill
+          />
+          <SingleLineInput
+            legend="Контактный E-mail"
+            name="email"
+            placeholder="you@email.com"
+            required
+            fill
+          />
         </div>
-        <CommentsInput id="contact-form-message-textarea" fieldsetId="contact-form-message-fieldset" />
+        <MultiLineInput
+          legend="Сообщение"
+          name="comment"
+          placeholder="Оставьте сообщение"
+        />
       </div>
       <div className="submit-button-field">
         <SubmitButton id="contact-form-submit-button" title="ОТПРАВИТЬ" transparent />
