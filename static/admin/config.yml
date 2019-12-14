@@ -15,7 +15,7 @@ collections:
         name: "citizenship"
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "citizenship-page" }
-          - { label: "Content text", name: "content", widget: "markdown" }
+          - { label: "Content", name: "content", widget: "markdown" }
       - file: "static/content/humanities.md"
         label: "Humanities Page"
         name: "humanities"
