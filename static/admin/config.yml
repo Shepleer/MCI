@@ -1,21 +1,58 @@
 backend:
-  name: gitgub
+  name: github
   branch: master
   repo: Shepleer/MCI
 
-media_folder: static/img
-public_folder: static/assets
+media_folder: static/assets
+public_folder: static/content
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "static/content/citizenship.md"
+        label: "Citizenship Page"
+        name: "citizenship"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "citizenship-page" }
+          - { label: "Content text", name: "content", widget: "markdown" }
+#      - file: "static/content/humanities.md"
+#        label: "Humanities Page"
+#        name: "humanities"
+#        fields:
+#          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "humanities-page" }
+#          - { label: "Content text", name: "content", widget: "markdown" }
+#      - file: "static/content/lmia.md"
+#        label: "LMIA Page"
+#        name: "lmia"
+#        fields:
+#          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "humanities-page" }
+#          - { label: "Content text", name: "content", widget: "markdown" }
+  - name: "humanities"
+    label: "Humanities Page"
+    folder: "static/content"
+    create: true
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "humanities-page" }
+      - { label: "Content text", name: "content", widget: "markdown" }
+  - name: "questions"
+    label: "Questions"
+    folder: "static/content/questions"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "reviews"
+    label: "Reviews"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: "static/content/reviews"
+    editor:
+      preview: false
+    fields:
+      - { label: "Avatar", name: "avatar", widget: "image" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }

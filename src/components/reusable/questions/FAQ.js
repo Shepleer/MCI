@@ -30,6 +30,9 @@ const Question = ({ setActiveKey, eventKey, title, text, activeKey }) => {
 };
 
 const FAQ = () => {
+
+
+
   const [activeKey, setActiveKey] = useState('0');
 
   return (
