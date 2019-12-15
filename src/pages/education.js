@@ -7,7 +7,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const Sitizenship = () => {
   const { markdownRemark: { html } } = useStaticQuery(graphql`
       query {
-          markdownRemark(frontmatter: {templateKey: { eq:"humanities-page-content" }}) {
+          markdownRemark(frontmatter: {templateKey: { eq:"education-page-content" }}) {
               html
           }
       }
@@ -15,7 +15,7 @@ const Sitizenship = () => {
 
   return (
     <Layout>
-      <DescriptionWrapper title="Гуманитарная программа">
+      <DescriptionWrapper title="Гражданство">
         <MainText html={html} />
       </DescriptionWrapper>
     </Layout>

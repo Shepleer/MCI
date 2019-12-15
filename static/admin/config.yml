@@ -10,24 +10,79 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "static/content/citizenship.md"
+      - file: "static/content/citizenship/citizenship.md"
         label: "Citizenship Page"
         name: "citizenship"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "citizenship-page" }
-          - { label: "Content", name: "content", widget: "markdown" }
-      - file: "static/content/humanities.md"
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "citizenship-page-content" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/humanities/humanities.md"
         label: "Humanities Page"
         name: "humanities"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "humanities-page" }
-          - { label: "Content text", name: "content", widget: "markdown" }
-      - file: "static/content/lmia.md"
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "humanities-page-content" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/lmia/lmia.md"
         label: "LMIA Page"
         name: "lmia"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "humanities-page" }
-          - { label: "Content text", name: "content", widget: "markdown" }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "lmia-page-content" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/education/education.md"
+        label: "Education Page"
+        name: "education"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "education-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "detail text", name: "detailText", widget: "markdown", required: false }
+      - file: "static/content/visa/visa.md"
+        label: "Visa Page"
+        name: "visa"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "education-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "guest visa description", name: "guestVisaDescription", widget: "string" }
+          - { label: "student visa description", name: "studentVisaDescription", widget: "string" }
+          - { label: "work visa description", name: "workVisaDescription", widget: "string" }
+          - { label: "super visa description", name: "superVisaDescription", widget: "string" }
+          - { label: "restoration visa description", name: "restorationStatusDescription", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/guestVisa/guestVisa.md"
+        name: "guestVisa"
+        label: "Guest Visa Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "guest-visa-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/workVisa/workVisa.md"
+        name: "workVisa"
+        label: "Work Visa Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "work-visa-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/studentVisa/studentVisa.md"
+        name: "studentVisa"
+        label: "Student Visa Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "student-visa-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/restorationStatus/restorationStatus.md"
+        name: "restorationStatus"
+        label: "Restoration Status Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "restoration-status-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/superVisa/superVisa.md"
+        name: "superVisa"
+        label: "Super Visa Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "super-visa-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
   - name: "questions"
     label: "Questions"
     folder: "static/content/questions"

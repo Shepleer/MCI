@@ -20,7 +20,7 @@ const LINK_ITEMS = [
   },
 ];
 
-const Index = () => {
+const Chance = () => {
   return(
     <Layout>
       <DescriptionTitle title="Оценка шансов" />
@@ -29,4 +29,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Chance;
