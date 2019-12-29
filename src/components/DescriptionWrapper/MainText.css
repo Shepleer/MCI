@@ -1,0 +1,36 @@
+.main-text-container {
+  max-width: 785px;
+  margin: 100px auto;
+  color: #2C384E;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 22px;
+}
+.main-text-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+}
+.main-text-container li {
+  width: fit-content;
+  list-style-type: none;
+}
+.main-text-container li:before {
+  content: "";
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  background-color: #E1493A;
+}
+@media screen and (max-width: 840px) {
+  .main-text-container {
+    max-width: 620px;
+    padding: 0 15px;
+  }
+}
+
+/*# sourceMappingURL=MainText.css.map */

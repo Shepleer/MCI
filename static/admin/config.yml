@@ -4,7 +4,6 @@ backend:
   repo: Shepleer/MCI
 
 media_folder: static/assets
-public_folder: static/content
 
 collections:
   - name: "pages"

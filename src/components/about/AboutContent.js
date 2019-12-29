@@ -1,7 +1,7 @@
 import React from 'react';
 import './AboutContent.sass';
 import { Image } from 'react-bootstrap';
-import president from './../../images/about/president.jpg';
+import president from '../../../static/assets/president.jpg';
 
 const AboutContent = () => {
   return (

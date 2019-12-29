@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel, Image } from 'react-bootstrap';
 import './reviews.sass';
-import reviewWoman from './../../images/other/review-woman.jpg';
+import reviewWoman from '../../../static/assets/review-woman.jpg';
 import AccentButton from '../reusable/AccentButton';
 
 const Review = ({ name="Евгения" }) => {

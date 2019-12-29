@@ -1,0 +1,70 @@
+.odds-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 930px) {
+  .odds-form-wrapper {
+    align-items: center;
+    width: 730px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .odds-form-wrapper {
+    width: 100%;
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
+.odds-form-title {
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #2C384E;
+}
+@media screen and (max-width: 500px) {
+  .odds-form-title {
+    font-size: 14px;
+  }
+}
+
+.privacy-policy-label {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 12px;
+  color: #2C384E;
+}
+
+.odds-form {
+  display: flex;
+  flex-direction: column;
+  width: 880px;
+  padding: 50px 58px 50px 55px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(189, 189, 189, 0.25);
+  border-radius: 10px;
+}
+@media screen and (max-width: 930px) {
+  .odds-form {
+    width: 730px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .odds-form {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+/*# sourceMappingURL=odds-form.css.map */

@@ -5,7 +5,6 @@ import MainText from '../../components/DescriptionWrapper/MainText';
 import DescriptionWrapper from '../../components/DescriptionWrapper/DescriptionWrapper';
 import LinkBannersContainer from '../../components/reusable/linkBanner/LinkBannersContainer';
 
-
 const links = [
   {
     link: '/',
@@ -25,34 +24,41 @@ const visas = [
   {
     title: 'Гостевые Визы',
     linkTitle: 'Подробнее',
-    to: '/visa/guestVisa'
+    to: '/visa/guestVisa',
   },
   {
     title: 'Гостевые Визы',
     linkTitle: 'Подробнее',
-    to: '/visa/guestVisa'
+    to: '/visa/guestVisa',
   },
   {
     title: 'Гостевые Визы',
     linkTitle: 'Подробнее',
-    to: '/visa/guestVisa'
+    to: '/visa/guestVisa',
   },
   {
     title: 'Гостевые Визы',
     linkTitle: 'Подробнее',
-    to: '/visa/guestVisa'
+    to: '/visa/guestVisa',
   },
   {
     title: 'Гостевые Визы',
     linkTitle: 'Подробнее',
-    to: '/visa/guestVisa'
+    to: '/visa/guestVisa',
   },
 ];
 
 const Visa = () => {
-  const { markdownRemark: { html } } = useStaticQuery(graphql`
+  const { markdownRemark: { html, frontmatter: { guestVisaDescription, studentVisaDescription, workVisaDescription, superVisaDescription, restorationStatusDescription } } } = useStaticQuery(graphql`
       query {
-          markdownRemark(frontmatter: {templateKey: { eq:"visa-page-content" }}) {
+          markdownRemark(frontmatter: {templateKey: { eq:"visa-page-content" }}){
+              frontmatter {
+                  guestVisaDescription
+                  studentVisaDescription
+                  workVisaDescription
+                  superVisaDescription
+                  restorationStatusDescription
+              }
               html
           }
       }
@@ -61,28 +67,33 @@ const Visa = () => {
   const visas = [
     {
       title: 'Гостевые Визы',
+      text: guestVisaDescription,
       linkTitle: 'Подробнее',
-      to: '/visa/guestVisa'
+      to: '/visa/guestVisa',
     },
     {
-      title: 'Гостевые Визы',
+      title: 'Студенческие Визы',
+      text: studentVisaDescription,
       linkTitle: 'Подробнее',
-      to: '/visa/guestVisa'
+      to: '/visa/studentVisa',
     },
     {
-      title: 'Гостевые Визы',
+      title: 'Рабочие Визы',
+      text: workVisaDescription,
       linkTitle: 'Подробнее',
-      to: '/visa/guestVisa'
+      to: '/visa/workVisa',
     },
     {
-      title: 'Гостевые Визы',
+      title: 'Супер Визы',
+      text: superVisaDescription,
       linkTitle: 'Подробнее',
-      to: '/visa/guestVisa'
+      to: '/visa/superVisa',
     },
     {
-      title: 'Гостевые Визы',
+      title: 'Продление и Восстановление Статуса',
+      text: restorationStatusDescription,
       linkTitle: 'Подробнее',
-      to: '/visa/guestVisa'
+      to: '/visa/restorationStatus',
     },
   ];
 
@@ -90,7 +101,7 @@ const Visa = () => {
     <Layout>
       <DescriptionWrapper title="Визы">
         <MainText html={html} />
-        <LinkBannersContainer />
+        <LinkBannersContainer items={visas} />
       </DescriptionWrapper>
     </Layout>
   );

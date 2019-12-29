@@ -7,14 +7,28 @@
   color: #2C384E;
   font-weight: 700;
   height: 205px;
+  margin-bottom: 92px;
 }
 .description-title-container h2 {
+  margin-top: 92px;
   font-size: 46px;
 }
 @media screen and (max-width: 500px) {
   .description-title-container h2 {
     margin-top: 70px;
     font-size: 24px;
+  }
+}
+.description-title-container h6 {
+  font-size: 21px;
+  font-weight: 400;
+  margin-top: 90px;
+  max-width: 580px;
+}
+@media screen and (max-width: 500px) {
+  .description-title-container h6 {
+    font-size: 14px;
+    margin-top: 50px;
   }
 }
 
