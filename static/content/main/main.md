@@ -1,4 +1,4 @@
 ---
-path 'mainPage'
-immigrationTopicTitle: 'Иммиграция в Канаду'
+path: "mainPage"
+immigrationTopicTitle: "Иммиграция в Канаду"
 ---
