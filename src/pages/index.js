@@ -17,9 +17,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
       query IndexQuery {
-          allMarkdownRemark(filter: {frontmatter: {path: {eq: "questions"}}}, limit: 3) {
-              edges{
-                  node{
+          questionsData: allMarkdownRemark(filter: {frontmatter: {path: {eq: "questions"}}}, limit: 3) {
+              questions: edges {
+                  node {
                       id
                       frontmatter{
                           title
@@ -28,11 +28,24 @@ const IndexPage = () => {
                   }
               }
           }
+          reviewsData: allMarkdownRemark(filter: {frontmatter: {path: {eq: "reviews"}}}) {
+              reviews: edges {
+                  node {
+                      id
+                      frontmatter {
+                          avatar
+                          name
+                          description
+                      }
+                  }
+              }
+          }
       }
   `);
-
-  const { allMarkdownRemark: { edges } } = data;
-  const questions = edges.map(element => element.node.frontmatter);
+  const { questionsData: { questions } } = data;
+  const questionItems = questions.map(element => element.node.frontmatter);
+  const { reviewsData: { reviews } } = data;
+  const reviewsItems = reviews.map(element => element.node.frontmatter);
 
   return (
     <Layout>
@@ -43,9 +56,9 @@ const IndexPage = () => {
       <TestBanner />
       <DescriptionText />
       <ConsultationBanner />
-      <ReviewsCarousel />
+      <ReviewsCarousel reviews={reviewsItems} />
       <FeedbackCall />
-      <FAQWrapper title="Есть вопросы?" text="Отлично! У нас есть ответы!" questions={questions} />
+      <FAQWrapper title="Есть вопросы?" text="Отлично! У нас есть ответы!" questions={questionItems} />
     </Layout>
   );
 };
