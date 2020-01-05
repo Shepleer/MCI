@@ -13,7 +13,7 @@ const FeedbackCall = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "phone", "phone": "myphone" })
+      body: encode({ "form-name": "Phone contact", "phone": phone })
     });
     e.preventDefault();
   });
@@ -23,6 +23,9 @@ const FeedbackCall = () => {
     <div className="feedback-call-container">
       <h4>Для более подробной информации об услуге оставьте свои данные</h4>
       <p className="description-label">Наш специалист свяжется с вами в течение 30 минут</p>
+      <form name="Phone contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="tel" name="phone" />
+      </form>
       <form name="phone" onSubmit={handleSubmit} className="feedback-call-form">
         <PhoneInput value={phone} onChange={setPhone} country={"ru"} regions={'europe'}  />
         <SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />
