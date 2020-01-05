@@ -13,11 +13,10 @@ const FeedbackCall = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "phoneContactForm", "phone": phone })
+      body: encode({ "form-name": "phone", "phone": phone })
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
-
     e.preventDefault();
   });
 
@@ -26,7 +25,7 @@ const FeedbackCall = () => {
     <div className="feedback-call-container">
       <h4>Для более подробной информации об услуге оставьте свои данные</h4>
       <p className="description-label">Наш специалист свяжется с вами в течение 30 минут</p>
-      <form onSubmit={handleSubmit} className="feedback-call-form">
+      <form name="phone" onSubmit={handleSubmit} className="feedback-call-form">
         <PhoneInput value={phone} onChange={setPhone} country={"ru"} regions={'europe'}  />
         <SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />
       </form>
