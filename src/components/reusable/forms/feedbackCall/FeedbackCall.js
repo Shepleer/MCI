@@ -14,7 +14,7 @@ const FeedbackCall = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "Contact phone", "phone": phone })
-    });
+    }).catch(console.log)
     e.preventDefault();
   });
 
@@ -30,6 +30,7 @@ const FeedbackCall = () => {
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="Contact phone" />
+        <input type="hidden" name="phone"/>
         <PhoneInput value={phone} onChange={setPhone} country={"ru"} regions={'europe'} />
         <SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />
       </form>
