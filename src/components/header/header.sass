@@ -4,68 +4,172 @@ $buttonBackgroundColor: #E1493A
 $whiteColor: #FFF
 $borderColor: #ECEDF3
 
-.header-container
-  @media screen and (max-width: 768px)
+//.header-container
+//  @media screen and (max-width: 768px)
+//    display: none
+//
+//.meta-navbar
+//  background-color: $metaBackgroundColor
+//
+//.main-nav
+//  box-shadow: 0px 2px 2px rgba(201, 201, 201, 0.25)
+//
+//.navbar
+//  padding: 0
+//
+//.nav-link
+//  font-size: 14px
+//  color: $linkColor
+//  text-decoration: none
+//  font-weight: 400
+//  padding: 8px 0
+//
+//.search-form
+//  margin: 0
+//
+//.image
+//  margin: 0
+//
+//.nav-logo
+//  padding: 8px
+//
+//.header-button
+//  display: flex
+//  align-items: center
+//  justify-content: center
+//  color: $whiteColor
+//  background-color: $buttonBackgroundColor
+//  border-radius: 40px
+//  height: 35px
+//  width: 278px
+//  h4
+//    margin: 0
+//    padding: 0
+//
+//.phone-number
+//  display: inline-block
+//  color: $buttonBackgroundColor
+//  align-items: center
+//  margin-bottom: 0
+//  word-break: keep-all
+//  font-size: 18px
+//  font-weight: 700
+//
+//
+//.dropdown-menu
+//  background-color: black
+//  border: none
+//  width: 100vw
+//
+//.mr-xl-6
+//  @media screen and (min-width: 1280px)
+//    margin-right: 155px !important
+//.ml-xl-6
+//  @media all and (min-width: 1280px)
+//    margin-left: 155px !important
+
+.navigation-header
+  @media screen and (max-width: 960px)
     display: none
 
-.meta-navbar
-  background-color: $metaBackgroundColor
-
-.main-nav
-  box-shadow: 0px 2px 2px rgba(201, 201, 201, 0.25)
-
-.navbar
-  padding: 0
-
-.nav-link
-  font-size: 14px
-  color: $linkColor
-  text-decoration: none
-  font-weight: 400
-  padding: 8px 0
-
-.search-form
-  margin: 0
-
-.image
-  margin: 0
-
-.nav-logo
-  padding: 8px
-
-.header-button
-  display: flex
-  align-items: center
-  justify-content: center
-  color: $whiteColor
-  background-color: $buttonBackgroundColor
-  border-radius: 40px
-  height: 35px
-  width: 278px
-  h4
-    margin: 0
-    padding: 0
-
-.phone-number
-  display: inline-block
-  color: $buttonBackgroundColor
-  align-items: center
-  margin-bottom: 0
-  word-break: keep-all
-  font-size: 18px
-  font-weight: 700
+.on-content-layout
+  padding: 0 55px
+  @media screen and (max-width: 1180px)
+    padding: 0 30px
 
 .separator
   border-bottom: 1px solid $borderColor
 
-.dropdown-menu
-  background-color: black
-  border: none
-  width: 100vw
+#header-accent-button
+  @media screen and (max-width: 1180px)
+    width: 244px
 
-.mr-xl-6
-  @media screen and (min-width: 1280px)
-    margin-right: 155px !important
-.ml-xl-6
-  @media all and (min-width: 1280px)
-    margin-left: 155px !important
+.meta-nav
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  width: 100%
+  height: 85px
+
+.meta-links
+  display: flex
+  flex-direction: row
+  align-items: center
+  img
+    margin: 0
+
+.meta-link
+  font-size: 14px
+  color: $linkColor
+  text-decoration: none
+  font-weight: 400
+  margin-left: 37.5px
+  @media screen and (max-width: 1180px)
+    margin-left: 20px
+
+.chance-link
+  display: flex
+  flex-direction: row
+  align-items: center
+  h3
+    color: #E1493A
+    font-size: 18px
+    font-weight: 700
+    margin-bottom: 0
+    margin-right: 38px
+    @media screen and (max-width: 1180px)
+      margin-right: 20px
+  a
+    height: 35px
+
+.content-nav
+  position: relative
+  box-shadow: 0px 2px 2px rgba(201, 201, 201, 0.25)
+  z-index: 16
+
+.content-links
+  display: flex
+  flex-direction: row
+  align-items: center
+  height: 51px
+  z-index: 15
+
+.content-link
+  display: flex
+  margin-right: 35px
+  font-size: 12px
+  color: #2C384E
+  text-transform: uppercase
+  height: 45px
+  align-items: center
+  @media screen and (max-width: 1180px)
+    margin-right: 15px
+  a
+    margin-right: 5px
+    color: inherit
+  img
+    margin: 0
+
+.detail-content-links
+  position: absolute
+  display: flex
+  flex-direction: column
+  height: 205px
+  top: 51px
+  z-index: 15
+  a
+    margin: 12px 12px 12px 0
+
+
+.detail-background
+  position: absolute
+  height: 205px
+  width: 100%
+  background-color: #F9F9F9
+  box-shadow: 0px 2px 2px rgba(201, 201, 201, 0.25)
+  top: 52px
+  z-index: 10
+
+.hidden
+  display: none

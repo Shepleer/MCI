@@ -1,18 +1,119 @@
-.navbar-mobile
+.header-mobile
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  height: 80px
+  padding: 0 15px
   box-shadow: 0px 4px 25px rgba(189, 189, 189, 0.25)
-  @media screen and (max-width: 768px)
+  @media screen and (min-width: 960px)
     display: none
-.nav-wrapper
+  img
+    margin: 0
+
+.menu-button
+  border: none
+  background: none
+  height: 30px
+  width: 30px
+  margin: 0
   padding: 0
 
-.navbar-mobile-toggle
-  border: none
+.header-mobile-menu
+  display: flex
+  flex-direction: column
+  overflow: hidden
 
-.navbar-toggler:hover
-  outline: none
-.navbar-toggler:focus
-  outline: none
-.navbar-toggler:active
-  outline: none
-.navbar-mobile-menu
-  padding-left: 50px
+.collapse-item
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  height: 60px
+
+.detail-links
+  height: auto
+  display: flex
+  flex-direction: column
+  background-color: #2C384E
+  padding-left: 20px
+
+.collapse-arrow
+  width: 7px
+  height: 11px
+  margin: 0
+  transition: transform 0.35s
+  transform: rotate(0deg)
+  &.active
+    transition: transform 0.35s
+    transform: rotate(90deg)
+
+.menu-item
+  display: flex
+  align-items: center
+  height: 60px
+  margin: 0 26px
+
+#menu-toggle
+  width: 25px
+  height: 20px
+  position: relative
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  transform: rotate(0deg)
+  -webkit-transition: .5s ease-in-out
+  -moz-transition: .5s ease-in-out
+  -o-transition: .5s ease-in-out
+  transition: .5s ease-in-out
+  cursor: pointer
+
+#menu-toggle span
+  display: block
+  position: absolute
+  height: 3px
+  width: 100%
+  background: #d3531a
+  opacity: 1
+  left: 0
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  transform: rotate(0deg)
+  -webkit-transition: .25s ease-in-out
+  -moz-transition: .25s ease-in-out
+  -o-transition: .25s ease-in-out
+  transition: .25s ease-in-out
+
+#menu-toggle span:nth-child(1)
+  top: 0px
+
+#menu-toggle span:nth-child(2),#menu-toggle span:nth-child(3)
+  top: 8px
+
+#menu-toggle span:nth-child(4)
+  top: 17px
+
+#menu-toggle.open span:nth-child(1)
+  top: 8px
+  width: 0%
+  left: 50%
+
+#menu-toggle.open span:nth-child(2)
+  -webkit-transform: rotate(45deg)
+  -moz-transform: rotate(45deg)
+  -o-transform: rotate(45deg)
+  transform: rotate(45deg)
+
+#menu-toggle.open span:nth-child(3)
+  -webkit-transform: rotate(-45deg)
+  -moz-transform: rotate(-45deg)
+  -o-transform: rotate(-45deg)
+  transform: rotate(-45deg)
+
+#menu-toggle.open span:nth-child(4)
+  top: 8px
+  width: 0%
+  left: 50%
+

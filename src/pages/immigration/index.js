@@ -6,8 +6,7 @@ import MainText from '../../components/DescriptionWrapper/MainText';
 const ImmigrationPage = () => {
   return (
     <Layout>
-      <DescriptionWrapper title="Семейное спонсорство">
-        {/*<MainText  />*/}
+      <DescriptionWrapper title="Имииграция">
       </DescriptionWrapper>
     </Layout>
   );

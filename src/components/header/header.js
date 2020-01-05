@@ -1,79 +1,82 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import './header.sass';
-import { Dropdown, Form, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'gatsby';
 import logo from './../../images/logo.png';
-import searchIcon from './../../images/searchIcon.svg';
 import AccentButton from '../reusable/AccentButton';
+import arrow from './../../images/pin.svg';
 
-const Header = ({ siteTitle }) => (
-  <header className="header-container">
-    <Navbar className="meta-navbar">
-      <Nav className="meta mr-auto ml-md-5 ml-md-5 ml-xl-6">
-        <Link className="nav-link pl-0" to="/about">О нас</Link>
-        <Link className="nav-link" to="#">Отзывы</Link>
-        <Link className="nav-link" to="#">Новости</Link>
-        <Link className="nav-link" to="/questions">Вопросы</Link>
-        <Link className="nav-link" to="/contact">Контакты</Link>
-      </Nav>
-      <Form className="search-form mr-md-5 mr-md-5 mr-xl-6">
-        <Image className="image" src={searchIcon} alt="Search ico" />
-      </Form>
-    </Navbar>
+const Header = () => {
 
-    <Navbar className="separator">
-      <Nav.Item>
-        <Navbar.Brand className="ml-md-5 ml-md-5  ml-xl-6" as={Link} to="/" >
-          <Image src={logo} />
-        </Navbar.Brand>
-      </Nav.Item>
-      <Nav.Item className="ml-auto mr-5 pr-0 pr-xl-5" >
-        <h3 className="phone-number">+7901 703-01-04</h3>
-      </Nav.Item>
-      <Nav.Item className="mr-md-5 mr-md-5 mr-xl-6">
-        <AccentButton />
-      </Nav.Item>
-    </Navbar>
+  const [visibleObjects, setVisible] = useState({
+    background: false,
+  });
 
-    <Navbar className="main-nav text-center">
-      <Nav.Item className="ml-md-5 ml-xl-6 mr-auto">
-        <Link className="nav-link" to="#">ОБРАЗОВАНИЕ</Link>
-      </Nav.Item>
-      <Nav.Item className="mx-auto">
-        <Link className="nav-link" to="#">РАБОТА</Link>
-      </Nav.Item>
-      <Dropdown as={Nav.Item} className="mx-auto">
-        <Dropdown.Toggle as={Nav.Link}>ИММИГРАЦИЯ</Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item><Link className="nav-link" to="#">Экономическая иммиграция</Link></Dropdown.Item>
-          <Dropdown.Item><Link className="nav-link" to="#">Провинциальные программы</Link></Dropdown.Item>
-          <Dropdown.Item><Link className="nav-link" to="#">Иммиграция для бизнесменов и предпринимателей</Link></Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      <Nav.Item className="mx-auto">
-        <Link className="nav-link" to="#">ВИЗЫ</Link>
-      </Nav.Item>
-      <Nav.Item className="mx-auto">
-        <Link className="nav-link" to="/humanities">ГУМАНИТАРНАЯ ПРОГРАММА</Link>
-      </Nav.Item>
-      <Nav.Item className="mx-auto">
-        <Link className="nav-link" to="#">СЕМЕЙНОЕ СПОНСОРСТВО</Link>
-      </Nav.Item>
-      <Nav.Item className="mx-auto">
-        <Link className="nav-link" to="#">ГРАЖДАНСТВО</Link>
-      </Nav.Item>
-      <Nav.Item className="mx-auto">
-        <Link className="nav-link" to="#">ИЗМЕНЕНИЕ СТАТУСА</Link>
-      </Nav.Item>
-      <Nav.Item className="mr-md-5 mr-md-5 mr-xl-6 ml-auto">
-        <Link className="nav-link" to="#">КОНСУЛЬТАЦИЯ</Link>
-      </Nav.Item>
-    </Navbar>
-  </header>
-);
+  const toggleDisplay = useCallback((e) => {
+    const name = e.target.getAttribute('name');
+    setVisible(prev => ({
+      [name]: !prev[name],
+      background: !prev[name],
+    }));
+  }, [setVisible]);
 
-Header.defaultProps = {
-  siteTitle: ``,
+  const resetDisplay = useCallback(() => {
+    setVisible({ background: false });
+  });
+
+  return (
+    <header className="navigation-header">
+      <nav className="meta-nav separator on-content-layout">
+        <div className="meta-links">
+          <Link to="/">
+            <img src={logo} />
+          </Link>
+          <Link className="meta-link" to="/about">О нас</Link>
+          <Link className="meta-link" to="#">Отзывы</Link>
+          <Link className="meta-link" to="/news">Новости</Link>
+          <Link className="meta-link" to="/questions">Вопросы</Link>
+          <Link className="meta-link" to="/contact">Контакты</Link>
+        </div>
+        <div className="chance-link">
+          <h3 className="phone-number">+7901 703-01-04</h3>
+          <AccentButton id="header-accent-button" title="БЕСПЛАТНАЯ ОЦЕНКА ШАНСОВ" />
+        </div>
+      </nav>
+      <nav onMouseLeave={resetDisplay} className="content-nav">
+        <div className="content-links on-content-layout">
+          <div>
+            <div name="immigration" onMouseEnter={toggleDisplay} className="content-link">
+              <Link name="immigration" to="/immigration">Иммиграция</Link>
+              <img name="immigration" src={arrow} />
+            </div>
+            <div className={`${visibleObjects.immigration ? null : 'hidden'} detail-content-links`}>
+              <Link className="content-link" to="/immigration/expressEntry">Express Entry</Link>
+              <Link className="content-link" to="/immigration/provincialPrograms">Провинциальные Программы</Link>
+              <Link className="content-link" to="/immigration/businessImmigration">Бизнес Иммиграция</Link>
+              <Link className="content-link" to="/immigration/familySponsorship">Семейное спонсорство</Link>
+            </div>
+          </div>
+          <div>
+            <div name="visa" onMouseEnter={toggleDisplay} className="content-link">
+              <Link name="visa" to="/visa">Визы</Link>
+              <img name="visa" src={arrow} />
+            </div>
+            <div className={`${visibleObjects.visa ? null : 'hidden'} detail-content-links`}>
+              <Link className="content-link" to="/visa/guestVisa">Гостевые Визы</Link>
+              <Link className="content-link" to="/visa/studentVisa">Студенческие Визы</Link>
+              <Link className="content-link" to="/visa/workVisa">Рабочие Визы</Link>
+              <Link className="content-link" to="/visa/superVisa">Супер Визы</Link>
+              <Link className="content-link" to="/visa/restorationStatus">Продление и Восстановление Статуса</Link>
+            </div>
+          </div>
+          <Link className="content-link" to="/lmia">Оценка Рынка Труда (LMIA)</Link>
+          <Link className="content-link" to="/humanities">Гуманитарная Программа</Link>
+          <Link className="content-link" to="/citizenship">Гражданство</Link>
+          <Link className="content-link" to="/">Получить консультацию</Link>
+        </div>
+        <div className={`${visibleObjects.background ? null : 'hidden'} detail-background`} />
+      </nav>
+    </header>
+  );
 };
 
 export default Header;

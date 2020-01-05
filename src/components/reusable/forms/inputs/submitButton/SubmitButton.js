@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SubmitButton = ({ title, className = 'accent-button', type = 'submit', id = '', shadow = false, transparent = false }) => {
+const SubmitButton = ({ onSubmit, title, className = 'accent-button', type = 'submit', id = '', shadow = false, transparent = false }) => {
   if (className && className !== 'accent-button') {
     className += ' accent-button';
   }
