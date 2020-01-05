@@ -18,7 +18,6 @@ const FeedbackCall = () => {
     e.preventDefault();
   });
 
-
   return (
     <div className="feedback-call-container">
       <h4>Для более подробной информации об услуге оставьте свои данные</h4>
@@ -31,8 +30,9 @@ const FeedbackCall = () => {
             data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="Contact phone" />
-        <PhoneInput value={phone} onChange={setPhone} country={"ru"} regions={'europe'} name="phone" />
-        <SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />
+        <PhoneInput value={phone} onChange={setPhone} country={"ru"} regions={'europe'} />
+        {/*<SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />*/}
+        <button type="submit" title="submit" ></button>
       </form>
       <p className="policy-label" >Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой
         конфиденциальности.</p>
