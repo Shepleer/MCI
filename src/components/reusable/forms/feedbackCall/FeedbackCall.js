@@ -14,7 +14,7 @@ const FeedbackCall = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", encoded })
+      body: encode({ "form-name": "phone contact form", encoded })
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
