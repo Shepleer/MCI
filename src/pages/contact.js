@@ -4,6 +4,7 @@ import DetailHeader from '../components/header/DetailHeader';
 import DescriptionTitle from '../components/DescriptionWrapper/DescriptionTitle';
 import FeedbackCall from '../components/reusable/forms/feedbackCall/FeedbackCall';
 import ContactFormContainer from '../components/reusable/forms/contactForm/ContactForm';
+import ContactMap from "../components/reusable/contactMap/ContactMap";
 
 const links = [
   {
@@ -22,6 +23,7 @@ const Contact = () => {
       <DetailHeader links={links} />
       <DescriptionTitle title="Контакты" />
       <FeedbackCall />
+      <ContactMap/>
       <ContactFormContainer />
     </Layout>
   );

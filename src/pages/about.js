@@ -4,6 +4,8 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import DetailHeader from '../components/header/DetailHeader';
 import AboutContent from '../components/about/AboutContent';
+import FeedbackCall from "../components/reusable/forms/feedbackCall/FeedbackCall";
+import ConsultationBanner from "../components/reusable/consultationBanner/ConsultationBanner";
 
 const links = [
   {
@@ -21,6 +23,8 @@ const About = () => (
     <SEO title="About" />
     <DetailHeader links={links} />
     <AboutContent />
+    <FeedbackCall/>
+    <ConsultationBanner/>
   </Layout>
 );
 

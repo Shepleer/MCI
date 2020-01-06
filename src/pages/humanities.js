@@ -5,6 +5,8 @@ import CheckOddsBanner from '../components/reusable/checkOdds/CheckOddsBanner';
 import DescriptionWrapper from '../components/DescriptionWrapper/DescriptionWrapper';
 import DescriptionList from '../components/DescriptionWrapper/DescriptionList';
 import LinkBanner from '../components/reusable/linkBanner/LinkBanner';
+import MainText from '../components/DescriptionWrapper/MainText';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const links = [
   {
@@ -22,13 +24,20 @@ const links = [
 ];
 
 const Humanities = () => {
+
+  const { markdownRemark: { html } } = useStaticQuery(graphql`
+      query {
+          markdownRemark(frontmatter: {templateKey: { eq:"humanities-page-content" }}) {
+              html
+          }
+      }
+  `);
+
   return (
     <Layout>
       <DetailHeader links={links} />
       <DescriptionWrapper title="Гуманитарная программа">
-        <DescriptionList />
-        <LinkBanner title="Гостевые визы" text="
-Жителям многих стран нужна гостевая виза для посещения Канады. Для многих людей процесс оформления и подачи документов – это сложный и изнурительный процесс. Мы поможем Вам получить гостевую визу, правильно оформив все документы" />
+        <MainText html={html} />
       </DescriptionWrapper>
     </Layout>
   );

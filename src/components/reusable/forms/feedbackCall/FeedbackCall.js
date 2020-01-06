@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import './feedbackCall.sass';
+import './phoneInput.sass';
 import SubmitButton from '../inputs/submitButton/SubmitButton';
 import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
 import { encode } from '../../../../utils/utils';
 
 const FeedbackCall = () => {
@@ -14,7 +14,7 @@ const FeedbackCall = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "Contact phone", "phone": phone })
-    }).catch(console.log)
+    });
     e.preventDefault();
   });
 
@@ -31,7 +31,13 @@ const FeedbackCall = () => {
             onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="Contact phone" />
         <input type="hidden" name="phone"/>
-        <PhoneInput value={phone} onChange={setPhone} country={"ru"} regions={'europe'} />
+        <PhoneInput
+          value={phone}
+          onChange={setPhone}
+          country={"ru"}
+          regions={'europe'}
+          enableAreaCodes={true}
+        />
         <SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />
       </form>
       <p className="policy-label" >Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой

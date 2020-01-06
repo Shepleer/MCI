@@ -33,7 +33,13 @@ const IndexPage = () => {
                   node {
                       id
                       frontmatter {
-                          avatar
+                          avatar {
+                              childImageSharp {
+                                  fixed {
+                                      src
+                                  }
+                              }
+                          }
                           name
                           description
                       }

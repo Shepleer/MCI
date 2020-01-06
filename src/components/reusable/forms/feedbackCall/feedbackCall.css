@@ -20,6 +20,11 @@
     font-size: 18px;
   }
 }
+@media screen and (max-width: 450px) {
+  .feedback-call-container {
+    padding: 50px 20px;
+  }
+}
 
 .description-label {
   font-size: 18px;
@@ -35,6 +40,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .feedback-call-form .accent-button {
   margin: 15px;
