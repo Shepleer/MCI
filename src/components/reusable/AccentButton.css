@@ -6,10 +6,11 @@
   width: 280px;
   height: 52px;
   background-color: #E1493A;
-  color: #FFFFFF;
   text-align: center;
   align-items: center;
   justify-content: center;
+  color: #FFFFFF;
+  transition: background-color 400ms cubic-bezier(0.16, 0.68, 0.43, 0.99);
 }
 @media screen and (max-width: 325px) {
   .accent-button {
@@ -17,13 +18,20 @@
     min-width: 250px;
   }
 }
+.accent-button:hover {
+  background-color: #BA3325;
+  border-color: #BA3325;
+  color: #FFFFFF;
+}
 
 .accent-button-text {
   text-transform: uppercase;
   font-size: 12px !important;
-  font-weight: normal !important;
+  line-height: 31px !important;
+  font-weight: 600 !important;
   text-align: center;
   margin-bottom: 0 !important;
+  transition: color 400ms cubic-bezier(0.16, 0.68, 0.43, 0.99);
 }
 
 .accent-button-shadow {
@@ -42,6 +50,9 @@
 .accent-button-transparent {
   background-color: transparent;
   color: #E1493A !important;
+}
+.accent-button-transparent:hover .accent-button-text {
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=AccentButton.css.map */

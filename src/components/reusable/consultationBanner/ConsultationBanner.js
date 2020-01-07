@@ -37,7 +37,7 @@ const ConsultationBanner = () => {
         <ConsultationStep stepNumber="3" image={checkMark} title="Узнайте результат" />
       </div>
       <div>
-        <AccentButton shadow />
+        <AccentButton shadow title="Запись на консультацию" to="/consultation" />
       </div>
     </div>
   );

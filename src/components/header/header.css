@@ -12,6 +12,16 @@
     padding: 0 30px;
   }
 }
+@media screen and (max-width: 960px) {
+  .on-content-layout {
+    padding: 0 73px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .on-content-layout {
+    padding: 0 15px;
+  }
+}
 
 .separator {
   border-bottom: 1px solid #ECEDF3;

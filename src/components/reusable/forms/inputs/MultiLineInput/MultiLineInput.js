@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MultiLineInput = ({ legend, name, onChange, value, placeholder, id = '', className = 'multiline-input', fieldsetId = '', fill, required }) => {
+const MultiLineInput = ({ legend, name, onChange, value, placeholder, id = null, className = 'multiline-input', fieldsetId = '', fill, required }) => {
   if (fill) {
     className += ' fill-input';
   }

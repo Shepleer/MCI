@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import DetailHeader from '../components/header/DetailHeader';
+import RelativeNav from '../components/header/RelativeNav';
 import CheckOddsBanner from '../components/reusable/checkOdds/CheckOddsBanner';
 import DescriptionWrapper from '../components/DescriptionWrapper/DescriptionWrapper';
 import DescriptionList from '../components/DescriptionWrapper/DescriptionList';
@@ -35,7 +35,7 @@ const Humanities = () => {
 
   return (
     <Layout>
-      <DetailHeader links={links} />
+      <RelativeNav links={links} />
       <DescriptionWrapper title="Гуманитарная программа">
         <MainText html={html} />
       </DescriptionWrapper>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
-import DetailHeader from '../components/header/DetailHeader';
+import RelativeNav from '../components/header/RelativeNav';
 import DescriptionTitle from '../components/DescriptionWrapper/DescriptionTitle';
 import FeedbackCall from '../components/reusable/forms/feedbackCall/FeedbackCall';
 import ContactFormContainer from '../components/reusable/forms/contactForm/ContactForm';
@@ -20,7 +20,7 @@ const links = [
 const Contact = () => {
   return (
     <Layout>
-      <DetailHeader links={links} />
+      <RelativeNav links={links} />
       <DescriptionTitle title="Контакты" />
       <FeedbackCall />
       <ContactMap/>

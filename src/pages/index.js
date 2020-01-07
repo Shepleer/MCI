@@ -9,7 +9,7 @@ import ServicesCarousel from '../components/home/ServicesCarousel';
 import TestBanner from '../components/home/TestBanner';
 import DescriptionText from '../components/home/DescriptionText';
 import ConsultationBanner from '../components/reusable/consultationBanner/ConsultationBanner';
-import ReviewsCarousel from '../components/reviews/reviewsCarousel';
+import ReviewsCarousel from '../components/reviews/ReviewsCarousel';
 import FeedbackCall from '../components/reusable/forms/feedbackCall/FeedbackCall';
 import FAQWrapper from '../components/reusable/questions/FAQWrapper';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -62,9 +62,9 @@ const IndexPage = () => {
       <TestBanner />
       <DescriptionText />
       <ConsultationBanner />
-      <ReviewsCarousel reviews={reviewsItems} />
+      <ReviewsCarousel title="Отзывы" detailTitle="Каждый день мы работаем на результат. Каждый клиент важен для нас" reviews={reviewsItems} />
       <FeedbackCall />
-      <FAQWrapper title="Есть вопросы?" text="Отлично! У нас есть ответы!" questions={questionItems} />
+      <FAQWrapper title="Есть вопросы?" text="Отлично! У нас есть ответы!" questions={questionItems} linkTitle="Все вопросы" withLinkTo="/questions" />
     </Layout>
   );
 };

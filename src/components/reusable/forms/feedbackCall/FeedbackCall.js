@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from 'react';
-import './feedbackCall.sass';
-import './phoneInput.sass';
-import SubmitButton from '../inputs/submitButton/SubmitButton';
-import PhoneInput from 'react-phone-input-2'
-import { encode } from '../../../../utils/utils';
+import React, { useCallback, useState } from "react";
+import "./feedbackCall.sass";
+import "./phoneInput.sass";
+import SubmitButton from "../inputs/submitButton/SubmitButton";
+import PhoneInput from "react-phone-input-2";
+import { encode } from "../../../../utils/utils";
 
 const FeedbackCall = () => {
 
-  const [phone, setPhone] = useState('+');
+  const [phone, setPhone] = useState("+");
 
   const handleSubmit = useCallback((e) => {
     fetch("https://epic-shockley-4c3cca.netlify.com", {
@@ -16,7 +16,7 @@ const FeedbackCall = () => {
       body: encode({ "form-name": "Contact phone", "phone": phone })
     });
     e.preventDefault();
-  });
+  }, [phone]);
 
   return (
     <div className="feedback-call-container">
@@ -28,19 +28,20 @@ const FeedbackCall = () => {
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}>
+      >
         <input type="hidden" name="form-name" value="Contact phone" />
-        <input type="hidden" name="phone"/>
+        <input type="hidden" name="phone" />
         <PhoneInput
           value={phone}
           onChange={setPhone}
           country={"ru"}
-          regions={'europe'}
+          regions={"europe"}
           enableAreaCodes={true}
         />
         <SubmitButton title="ОСТАВИТЬ ЗАЯВКУ" type="submit" shadow />
       </form>
-      <p className="policy-label" >Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой
+      <p className="policy-label">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c
+        политикой
         конфиденциальности.</p>
     </div>
   );

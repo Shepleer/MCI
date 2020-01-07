@@ -6,9 +6,19 @@ $activeColor: #E1493A
   flex-direction: column
   align-items: center
   justify-content: center
-  height: 900px
+  margin-bottom: 200px
+  color: #2C384E
   h4
-    margin-bottom: 90px
+    font-size: 30px
+    line-height: 46px
+    font-weight: 700
+    margin-top: 90px
+    margin-bottom: 30px
+  .questions-detail-title
+    font-weight: 300
+    font-size: 18px
+    line-height: 27px
+    margin-bottom: 100px
 
 .questions-wrapper
   width: 100%
@@ -24,7 +34,7 @@ $activeColor: #E1493A
   width: 90%
   max-width: 880px
   box-shadow: 0 4px 20px rgba(189, 189, 189, 0.25)
-  margin: 15px 15px
+  margin: 5px 15px
   padding: 0 60px
   @media screen and (max-width: 500px)
     margin: 0
@@ -60,14 +70,14 @@ $activeColor: #E1493A
   border-radius: 50%
   margin-left: auto
   transition: 400ms
-  img
-    margin: 0
   &.disabled
     transform: rotate(180deg)
-    filter: grayscale(100)
+    path
+      fill: $disabledColor
   &.active
     transform: rotate(0deg)
-    filter: grayscale(0)
+    path
+      fill: $activeColor
 
 
 .question-indicator
@@ -90,11 +100,8 @@ $activeColor: #E1493A
   font-weight: 300
   color: #656769
 
-//.active
-//  background-color: $activeColor
-
-//.disabled
-//  background-color: $disabledColor
+#questions-accent-button
+  margin-top: 62px
 
 .hidden
   display: none

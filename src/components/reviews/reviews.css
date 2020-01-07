@@ -4,13 +4,18 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 120px;
-  color: #2C384E;
 }
-.review-container h4 {
+
+.review-header {
+  text-align: center;
+  color: #2C384E;
+  z-index: 15;
+}
+.review-header h4 {
   font-size: 30px;
   font-weight: 700;
 }
-.review-container p {
+.review-header p {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 50px;
@@ -21,7 +26,7 @@
   align-items: center;
   justify-content: center;
   width: 880px;
-  margin: 0 auto 15px;
+  margin: 25px auto;
   background-color: #FFFFFF;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(189, 189, 189, 0.25);
@@ -32,6 +37,12 @@
   }
 }
 
+.brackets {
+  position: absolute;
+  top: -90px;
+  left: 10%;
+}
+
 .review {
   display: flex;
   flex-direction: row;
@@ -39,6 +50,19 @@
   justify-content: center;
   padding: 0 90px;
   min-height: 400px;
+}
+.review h4 {
+  font-size: 24px;
+  line-height: 25px;
+  font-weight: 700;
+  color: #2C384E;
+}
+.review p {
+  color: #656769;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  margin-bottom: 50px;
 }
 @media screen and (max-width: 768px) {
   .review {
@@ -71,6 +95,15 @@
     align-items: center;
     text-align: center;
   }
+}
+
+.carousel-inner {
+  padding-top: 10px;
+}
+
+.carousel-content {
+  position: relative;
+  width: 100%;
 }
 
 .reviewCarouselSlide {

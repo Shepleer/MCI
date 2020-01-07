@@ -7,15 +7,17 @@ import SubmitButton from '../inputs/submitButton/SubmitButton';
 
 const ContactForm = () => {
 
-  const [fields, setFields] = useState({fullName: ''});
+  const [fields, setFields] = useState({});
 
   const updateFormField = useCallback(e => {
-    console.log(e.target.value);
+    const name = e.target.name
+    console.log(name)
+    console.log(e.target);
     setFields(prevState => ({
       ...prevState,
-      [e.target.name]: e.target.value,
+      [name]: e.target.value,
     }));
-
+    e.preventDefault();
   }, [setFields]);
 
   return (
@@ -24,7 +26,7 @@ const ContactForm = () => {
         <div className="contact-info">
           <SingleLineInput
             onChange={updateFormField}
-            value={fields.fullName || ''}
+            value={fields.fullName}
             legend="Ваша фамилия имя и отчество"
             name="fullName"
             placeholder="Иванов Иван Иванович"

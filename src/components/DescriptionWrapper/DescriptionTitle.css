@@ -6,8 +6,6 @@
   text-align: center;
   color: #2C384E;
   font-weight: 700;
-  height: 205px;
-  margin-bottom: 92px;
 }
 .description-title-container h2 {
   margin-top: 92px;
@@ -20,10 +18,12 @@
   }
 }
 .description-title-container h6 {
-  font-size: 21px;
-  font-weight: 400;
-  margin-top: 90px;
-  max-width: 580px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 300;
+  margin-top: 27px;
+  max-width: 700px;
+  margin-bottom: 90px;
 }
 @media screen and (max-width: 500px) {
   .description-title-container h6 {

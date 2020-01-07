@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleLineInput = ({ legend, name, value, onChange, type='text', placeholder, id='', className='one-line-input', fieldsetId='', fill, required }) => {
+const SingleLineInput = ({ legend, name, value='', onChange, type='text', placeholder, id='', className='one-line-input', fieldsetId='', fill, required }) => {
   if (fill) {
     className += ' fill-input';
   }

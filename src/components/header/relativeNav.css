@@ -1,0 +1,31 @@
+.relative-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
+}
+@media screen and (max-width: 500px) {
+  .relative-nav {
+    height: 40px;
+  }
+}
+
+.relative-nav-link {
+  font-size: 14px;
+  line-height: 16px;
+  color: #8C939F;
+  font-weight: 400;
+}
+.relative-nav-link::after {
+  content: "|";
+  margin: 0 10px;
+}
+
+.relative-nav-link.last {
+  color: #2C384E;
+}
+.relative-nav-link.last::after {
+  content: none;
+}
+
+/*# sourceMappingURL=relativeNav.css.map */

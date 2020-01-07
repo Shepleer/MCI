@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import './AccentButton.sass';
 
-const AccentButton = ({ title, to = '#', shadow = false, className = 'accent-button', id = '', transparent = false }) => {
+const AccentButton = ({ title, to='#', shadow=false, className='accent-button', id='', transparent=false }) => {
   if (className && className !== 'accent-button') {
     className += ' accent-button';
   }

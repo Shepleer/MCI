@@ -7,7 +7,7 @@ const CheckOddsBanner =  () => {
     <div className="odds-container">
       <h4>Узнай свои шансы на Иммиграцию!</h4>
       <p>Заполните анкету и мы свяжемся с вами в ближайшее время</p>
-      <AccentButton shadow />
+      <AccentButton shadow title="Бесплатная оценка шансов" to="/chance" />
     </div>
   );
 };

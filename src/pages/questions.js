@@ -1,11 +1,12 @@
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import DetailHeader from "../components/header/DetailHeader";
+import RelativeNav from "../components/header/RelativeNav";
 import FAQWrapper from "../components/reusable/questions/FAQWrapper";
 import ConsultationBanner from "../components/reusable/consultationBanner/ConsultationBanner";
 import { graphql, useStaticQuery } from "gatsby";
 import FeedbackCall from "../components/reusable/forms/feedbackCall/FeedbackCall";
+import DescriptionTitle from "../components/DescriptionWrapper/DescriptionTitle";
 
 const links = [
   {
@@ -42,8 +43,9 @@ const Questions = () => {
   return (
     <Layout>
       <SEO title="ask" />
-      <DetailHeader links={links} />
-      <FAQWrapper title="Вопрос-ответ" questions={questions} />
+      <RelativeNav links={links} />
+      <DescriptionTitle title="Вопрос-Ответ" />
+      <FAQWrapper questions={questions} />
       <FeedbackCall />
       <ConsultationBanner />
     </Layout>

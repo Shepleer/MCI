@@ -28,7 +28,7 @@ const HeaderMobile = () => {
 
   return (
     <header>
-      <div className="header-mobile">
+      <div className="header-mobile on-content-layout">
         <button name="mobileMenu" onClick={toggleVisible} className="menu-button">
           <div name="mobileMenu" id="menu-toggle" className={`${visibleItems.mobileMenu ? 'open' : ''}`}>
             <span name="mobileMenu"></span>

@@ -31,14 +31,14 @@ const Header = () => {
             <img src={logo} />
           </Link>
           <Link className="meta-link" to="/about">О нас</Link>
-          <Link className="meta-link" to="#">Отзывы</Link>
+          <Link className="meta-link" to="/reviews">Отзывы</Link>
           <Link className="meta-link" to="/news">Новости</Link>
           <Link className="meta-link" to="/questions">Вопросы</Link>
           <Link className="meta-link" to="/contact">Контакты</Link>
         </div>
         <div className="chance-link">
           <h3 className="phone-number">+7901 703-01-04</h3>
-          <AccentButton id="header-accent-button" title="БЕСПЛАТНАЯ ОЦЕНКА ШАНСОВ" />
+          <AccentButton id="header-accent-button" title="БЕСПЛАТНАЯ ОЦЕНКА ШАНСОВ" to="/chance" />
         </div>
       </nav>
       <nav onMouseLeave={resetDisplay} className="content-nav">
@@ -71,7 +71,7 @@ const Header = () => {
           <Link className="content-link" to="/lmia">Оценка Рынка Труда (LMIA)</Link>
           <Link className="content-link" to="/humanities">Гуманитарная Программа</Link>
           <Link className="content-link" to="/citizenship">Гражданство</Link>
-          <Link className="content-link" to="/">Получить консультацию</Link>
+          <Link className="content-link" to="/consultation">Получить консультацию</Link>
         </div>
         <div className={`${visibleObjects.background ? null : 'hidden'} detail-background`} />
       </nav>
