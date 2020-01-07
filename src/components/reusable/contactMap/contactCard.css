@@ -1,0 +1,26 @@
+.contact-card {
+  position: absolute;
+  top: 75px;
+  left: 113px;
+  width: 310px;
+  height: 322px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(189, 189, 189, 0.25);
+  padding-left: 78px;
+  padding-right: 63px;
+  padding-top: 95px;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 5px;
+  z-index: 20;
+}
+
+.address-label {
+  color: #ABAFB8;
+}
+
+.contact-label {
+  color: #2C384E;
+}
+
+/*# sourceMappingURL=contactCard.css.map */
