@@ -133,7 +133,7 @@ const VisaForm = () => {
     fetch("https://epic-shockley-4c3cca.netlify.com", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "Contact form", ...fields }),
+      body: encode({ "form-name": "Visa Form", ...fields }),
     });
   }, [fields]);
 
