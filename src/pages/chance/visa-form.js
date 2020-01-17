@@ -142,7 +142,6 @@ const VisaForm = () => {
       ...fields,
       [e.target.name]: e.target.value,
     });
-    console.log(fields);
   }, [fields, setFields]);
 
   const {
@@ -164,6 +163,8 @@ const VisaForm = () => {
     <Layout>
       <DescriptionTitle title="Оценка шансов на получение визы" />
       <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Visa Form" onSubmit={submitForm}>
+        <input type="hidden" name="form-name" value="Visa Form" />
+
         <div className="odds-form-line">
           <SingleLineInput
             legend="Контактный E-mail"
