@@ -28,19 +28,11 @@ collections:
         fields:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "lmia-page-content" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "static/content/education/education.md"
-        label: "Education Page"
-        name: "education"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "education-page-content" }
-          - { label: "title description", name: "titleDescription", widget: "text", required: false }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "detail text", name: "detailText", widget: "markdown", required: false }
       - file: "static/content/visa/visa.md"
         label: "Visa Page"
         name: "visa"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "education-page-content" }
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "visa-page-content" }
           - { label: "title description", name: "titleDescription", widget: "text", required: false }
           - { label: "guest visa description", name: "guestVisaDescription", widget: "string" }
           - { label: "student visa description", name: "studentVisaDescription", widget: "string" }
@@ -83,6 +75,51 @@ collections:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "super-visa-page-content" }
           - { label: "title description", name: "titleDescription", widget: "text", required: false }
           - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/immigration/immigration.md"
+        name: "immigration"
+        label: "Immigration Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "immigration-page-content" }
+          - { label: "Title", name: "title", widget: "text", required: true }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "After Content Topic", name: "afterContentTopic", widget: "text", required: false }
+          - { label: "ExpressEntryDescription", name: "expressEntryDescription", widget: "string" }
+          - { label: "ProvincialProgramsDescription", name: "provincialProgramsDescription", widget: "string" }
+          - { label: "BusinessImmigrationDescription", name: "businessImmigrationDescription", widget: "string" }
+          - { label: "Family Sponsorship Description", name: "familySponsorshipDescription", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/expressEntry/expressEntry.md"
+        name: "expressEntry"
+        label: "Express Entry Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "express-entry-page-content" }
+          - { label: "Title", name: "title", widget: "text", required: true }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/provincialPrograms/provincialPrograms.md"
+        name: "provincialPrograms"
+        label: "Provincial Programs Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "provincial-programs-page-content" }
+          - { label: "Title", name: "title", widget: "text", required: true }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/businessImmigration/businessImmigration.md"
+        name: "businessImmigration"
+        label: "Business Immigration Page"
+        fields:
+           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "business-immigration-page-content" }
+           - { label: "Title", name: "title", widget: "text", required: true }
+           - { label: "title description", name: "titleDescription", widget: "text", required: false }
+           - { label: "Body", name: "body", widget: "markdown" }
+      - file: "static/content/familySponsorship/familySponsorship.md"
+        name: "familySponsorship"
+        label: "Family Sponsorship Page"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "family-sponsorship-page-content" }
+          - { label: "Title", name: "title", widget: "text", required: true }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "Body", name: "body", widget: "markdown" }
   - name: "questions"
     label: "Questions"
     folder: "static/content/questions"
@@ -110,4 +147,11 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     folder: "static/content/news"
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "news-item-content" }
+      - { label:  "Title", name: "title", widget: "string"}
+      - { label: "Detail", name: "detail", widget: "string" }
+      - { label: "Cover image", name: "coverImage", widget: "image" }
+      - { label: "Publish date", name: "publishDate", widget: "datetime", default: "", dateFormat: true, timeFormat: false }
+      - { label: "Body", name: "body", widget: "markdown" }
 

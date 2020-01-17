@@ -120,7 +120,7 @@
   margin-left: 10px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  background-image: url("./../../images/reviews/rewiews-left-arrow.png");
+  background-image: url("../../../images/reviews/rewiews-left-arrow.png");
   background-size: auto;
   background-position: center;
   box-shadow: 0 4px 4px rgba(153, 153, 153, 0.25);
@@ -135,7 +135,7 @@
   margin-right: 10px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  background-image: url("./../../images/reviews/rewiews-right-arrow.png");
+  background-image: url("../../../images/reviews/rewiews-right-arrow.png");
   background-size: auto;
   background-position: center;
   box-shadow: 0 4px 4px rgba(153, 153, 153, 0.25);

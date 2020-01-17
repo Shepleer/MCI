@@ -1,0 +1,75 @@
+.news-list-navigation-wrapper
+  margin-left: auto
+  margin-right: auto
+
+.news-list-navigation
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-bottom: 200px
+  & a:nth-last-child(2)
+    @media screen and (max-width: 700px)
+      display: none
+  & a:nth-last-child(3)
+    @media screen and (max-width: 595px)
+      display: none
+  & a:nth-last-child(4)
+    @media screen and (max-width: 540px)
+      display: none
+  & a:nth-last-child(5)
+    @media screen and (max-width: 490px)
+      display: none
+  & a:nth-last-child(6)
+    @media screen and (max-width: 440px)
+      display: none
+  & a:nth-last-child(7)
+    @media screen and (max-width: 380px)
+      display: none
+
+
+.news-list-navigation a:nth-last-child(2)
+  @media screen and (max-width: 700px)
+    display: none
+
+.news-list-arrow-link
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 80px
+  height: 50px
+  margin: 0 30px
+  border-radius: 100px
+  box-shadow: 0 24px 40px rgba(191, 188, 188, 0.35)
+  &:hover
+    svg
+      path
+        fill: #BA3325
+  @media screen and (max-width: 1280px)
+    width: 60px
+    height: 38px
+    margin: 22.5px
+
+.news-list-link
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  box-shadow: 0 24px 40px rgba(191, 188, 188, 0.35)
+  margin: 0 10px
+  font-size: 12px
+  text-align: center
+  color: #656769
+  p
+    margin: 0
+  @media screen and (max-width: 1280px)
+    width: 38px
+    height: 38px
+    margin: 7.5px
+
+.current-link
+  color: #BA3325
+
+.rotate
+  transform: rotate(180deg)

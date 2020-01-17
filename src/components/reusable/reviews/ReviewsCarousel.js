@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "./reviews.sass";
-import AccentButton from "../reusable/AccentButton";
+import AccentButton from "../AccentButton";
+import PopupContactForm from "../popupContactForm/PopupContactForm";
 
 const Review = ({ avatar, name, text }) => {
   return (
@@ -18,8 +19,13 @@ const Review = ({ avatar, name, text }) => {
 };
 
 const ReviewsCarousel = ({ title = null, detailTitle = null, reviews }) => {
+
+  const [isFormVisible, setVisible] = useState(false);
+  const toggleFormVisible = useCallback(() => setVisible(prev => !prev), [setVisible]);
+
   return (
     <div className="review-container">
+      <PopupContactForm visible={isFormVisible} onClose={toggleFormVisible} />
       <div className="review-header">
         {title && <h4>{title}</h4>}
         {detailTitle && <p>{detailTitle}</p>}
@@ -46,7 +52,9 @@ const ReviewsCarousel = ({ title = null, detailTitle = null, reviews }) => {
           }
         </Carousel>
       </div>
-      <AccentButton transparent />
+      <button className="accent-button accent-button-transparent" onClick={toggleFormVisible} >
+        <p className="accent-button-text">Оставить отзыв</p>
+      </button>
     </div>
   );
 };

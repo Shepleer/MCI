@@ -108,6 +108,9 @@
   height: 45px;
   align-items: center;
 }
+.content-link:hover {
+  color: #BA3325;
+}
 @media screen and (max-width: 1180px) {
   .content-link {
     margin-right: 15px;

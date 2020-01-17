@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import RelativeNav from '../components/header/RelativeNav';
 import DescriptionTitle from '../components/DescriptionWrapper/DescriptionTitle';
 import FeedbackCall from '../components/reusable/forms/feedbackCall/FeedbackCall';
-import ContactFormContainer from '../components/reusable/forms/contactForm/ContactForm';
+import ContactFormContainer from '../components/reusable/forms/contactForm/ContactFormContainer';
 import ContactMap from "../components/reusable/contactMap/ContactMap";
 
 const links = [

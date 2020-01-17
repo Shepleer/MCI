@@ -1,6 +1,6 @@
 ---
 templateKey: "news-item-content"
-title: How to immigrate to Canad
+title: How not to immigrate to Canada?
 detail: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
   incididunt ut...

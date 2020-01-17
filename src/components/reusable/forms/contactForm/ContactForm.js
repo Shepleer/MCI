@@ -1,42 +1,65 @@
-import React, { useCallback, useState } from 'react';
-import './contactForm.sass';
-import './../inputs/inputs.sass';
-import SingleLineInput from '../inputs/SingleLineInput/SingleLineImput';
-import MultiLineInput from '../inputs/MultiLineInput/MultiLineInput';
-import SubmitButton from '../inputs/submitButton/SubmitButton';
+import React, { useCallback, useState } from "react";
+import "./contactForm.sass";
+import "./../inputs/inputs.sass";
+import SingleLineInput from "../inputs/SingleLineInput/SingleLineImput";
+import SubmitButton from "../inputs/submitButton/SubmitButton";
+import MultiLineInput from "../inputs/MultiLineInput/MultiLineInput";
+import { encode } from "../../../../utils/utils";
 
-const ContactForm = () => {
+const ContactForm = ({ popup, onPopupClose, formTitle }) => {
 
-  const [fields, setFields] = useState({});
+  const [fields, setFields] = useState({
+    email: '',
+    fullName: '',
+    comment: '',
+  });
 
   const updateFormField = useCallback(e => {
-    const name = e.target.name
-    console.log(name)
-    console.log(e.target);
-    setFields(prevState => ({
-      ...prevState,
-      [name]: e.target.value,
-    }));
+    setFields({
+      ...fields,
+      [e.target.name]: e.target.value,
+    });
     e.preventDefault();
-  }, [setFields]);
+  }, [setFields, fields]);
+
+  const handleSubmit = useCallback((e) => {
+    const { email, fullName, comment } = fields;
+    fetch("https://epic-shockley-4c3cca.netlify.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "Contact form", "email": email, "fullName": fullName, "comment": comment }),
+    });
+    e.preventDefault();
+  }, [fields]);
 
   return (
-    <form className="contact-form" name="contact" method="POST" data-netlify="true">
+    <form className={`contact-form ${popup && "contact-form-popup"}`} name="Contact form" method="POST" onSubmit={handleSubmit}>
+      {popup &&
+      <p className="">{formTitle}</p>
+      }
+      {popup &&
+      <button onClick={onPopupClose} type="button" className="close-form-cross">
+        <span />
+        <span />
+      </button>
+      }
       <div className="contact-form-main">
         <div className="contact-info">
-          <SingleLineInput
-            onChange={updateFormField}
-            value={fields.fullName}
-            legend="Ваша фамилия имя и отчество"
-            name="fullName"
-            placeholder="Иванов Иван Иванович"
-            required
-            fill
-          />
+            <SingleLineInput
+              onChange={updateFormField}
+              value={fields.fullName}
+              legend="Ваша фамилия имя и отчество"
+              name="fullName"
+              placeholder="Иванов Иван Иванович"
+              required
+              fill
+            />
           <SingleLineInput
             legend="Контактный E-mail"
             name="email"
             placeholder="you@email.com"
+            value={fields.email}
+            onChange={updateFormField}
             required
             fill
           />
@@ -54,15 +77,4 @@ const ContactForm = () => {
   );
 };
 
-const ContactFormContainer = () => {
-  return (
-    <div className="contact-form-container">
-      <div className="contact-form-wrapper">
-        <h4 className="form-title">Связаться с нами</h4>
-        <ContactForm />
-      </div>
-    </div>
-  );
-};
-
-export default ContactFormContainer;
+export default ContactForm;

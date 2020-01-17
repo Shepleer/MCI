@@ -182,7 +182,7 @@ const ContactMap = () => {
       <p className="contact-map-label">Контактная информация</p>
       <ContactCard adress="1750 Steeles Ave West, Unit 204, Concord, ON L4K 2L7" phone="+1 (416) 800-8966" email="info@maplecanada.com" />
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCTQOjKcevRtB4ag_CGVmdCJTJa5cGtCoU" }}
+        bootstrapURLKeys={{ key: "AIzaSyCVOvl0G1lBbkZc_uPoZ2N_G8kCJLF3nQg" }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         options={options}

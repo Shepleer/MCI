@@ -73,11 +73,9 @@
 }
 
 .question-collapse-button {
-  width: 28px;
-  height: 28px;
   padding: 0;
   border: none;
-  border-radius: 50%;
+  background-color: transparent;
   margin-left: auto;
   transition: 400ms;
 }

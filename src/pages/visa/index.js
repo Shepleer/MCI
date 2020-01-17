@@ -4,6 +4,7 @@ import Layout from '../../components/layout';
 import MainText from '../../components/DescriptionWrapper/MainText';
 import DescriptionWrapper from '../../components/DescriptionWrapper/DescriptionWrapper';
 import LinkBannersContainer from '../../components/reusable/linkBanner/LinkBannersContainer';
+import RelativeNav from "../../components/header/RelativeNav";
 
 const links = [
   {
@@ -20,36 +21,19 @@ const links = [
   },
 ];
 
-const visas = [
-  {
-    title: 'Гостевые Визы',
-    linkTitle: 'Подробнее',
-    to: '/visa/guestVisa',
-  },
-  {
-    title: 'Гостевые Визы',
-    linkTitle: 'Подробнее',
-    to: '/visa/guestVisa',
-  },
-  {
-    title: 'Гостевые Визы',
-    linkTitle: 'Подробнее',
-    to: '/visa/guestVisa',
-  },
-  {
-    title: 'Гостевые Визы',
-    linkTitle: 'Подробнее',
-    to: '/visa/guestVisa',
-  },
-  {
-    title: 'Гостевые Визы',
-    linkTitle: 'Подробнее',
-    to: '/visa/guestVisa',
-  },
-];
-
 const Visa = () => {
-  const { markdownRemark: { html, frontmatter: { guestVisaDescription, studentVisaDescription, workVisaDescription, superVisaDescription, restorationStatusDescription } } } = useStaticQuery(graphql`
+  const {
+    markdownRemark: {
+      html,
+      frontmatter: {
+        guestVisaDescription,
+        studentVisaDescription,
+        workVisaDescription,
+        superVisaDescription,
+        restorationStatusDescription
+      }
+    }
+  } = useStaticQuery(graphql`
       query {
           markdownRemark(frontmatter: {templateKey: { eq:"visa-page-content" }}){
               frontmatter {
@@ -99,6 +83,7 @@ const Visa = () => {
 
   return (
     <Layout>
+      <RelativeNav links={links} />
       <DescriptionWrapper title="Визы">
         <MainText html={html} />
         <LinkBannersContainer items={visas} />

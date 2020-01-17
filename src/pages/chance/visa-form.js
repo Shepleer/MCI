@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useCallback, useState } from "react";
 import Layout from '../../components/layout';
 import DescriptionTitle from '../../components/DescriptionWrapper/DescriptionTitle';
 import FeedbackCall from '../../components/reusable/forms/feedbackCall/FeedbackCall';
 import OddsFormWrapper from '../../components/reusable/forms/oddsForm/OddsFormWrapper';
-import PhoneInput from '../../components/reusable/forms/inputs/phoneInput/PhoneInput';
 import RadioInput from '../../components/reusable/forms/inputs/RadioInput/RadioInput';
 import SingleLineInput from '../../components/reusable/forms/inputs/SingleLineInput/SingleLineImput';
 import MultiLineInput from '../../components/reusable/forms/inputs/MultiLineInput/MultiLineInput';
+import PhoneInput from "react-phone-input-2";
+import { encode } from "../../utils/utils";
 
 const AGE = {
   title: 'Сколько вам лет',
@@ -121,51 +122,108 @@ const RELATIVES = {
 };
 
 const VisaForm = () => {
+
+  const [fields, setFields] = useState({
+    phone: '+',
+    age: '',
+  });
+
+  const submitForm = useCallback(event => {
+    event.preventDefault();
+    fetch("https://epic-shockley-4c3cca.netlify.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "Contact form", ...fields }),
+    });
+  }, [fields]);
+
+  const updateFormField = useCallback(e => {
+    setFields({
+      ...fields,
+      [e.target.name]: e.target.value,
+    });
+    console.log(fields);
+  }, [fields, setFields]);
+
+  const {
+    email,
+    phone,
+    fullName,
+    age,
+    maritalStatus,
+    placeOfLiving,
+    haveChildren,
+    employment,
+    trips,
+    money,
+    relatives,
+    comment,
+  } = fields;
+
   return (
     <Layout>
       <DescriptionTitle title="Оценка шансов на получение визы" />
-      <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Visa Form">
+      <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Visa Form" onSubmit={submitForm}>
         <div className="odds-form-line">
           <SingleLineInput
             legend="Контактный E-mail"
             name="email"
             type="email"
+            value={email}
+            onChange={updateFormField}
             placeholder="you@email.com"
             required
           />
-          <PhoneInput legend />
+          <PhoneInput
+            value={phone}
+            onChange={phone => {
+              setFields({
+                ...fields,
+                phone,
+              })
+            }}
+            country={"ru"}
+            regions={"europe"}
+            enableAreaCodes={true}
+          />
         </div>
         <SingleLineInput
           legend="Ваша фамилия имя и отчество"
           name="fullName"
           placeholder="Иванов Иван Иванович"
+          value={fullName}
+          onChange={updateFormField}
           required
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...AGE} />
-          <RadioInput {...MARITAL_STATUS} />
+          <RadioInput {...AGE} checkedValue={age} onChange={updateFormField} />
+          <RadioInput {...MARITAL_STATUS} checkedValue={maritalStatus} onChange={updateFormField} />
         </div>
-        <RadioInput {...HAVE_CHILDREN} />
+        <RadioInput {...HAVE_CHILDREN} checkedValue={haveChildren} onChange={updateFormField} />
         <SingleLineInput
           legend="Страна и город проживания"
           name="placeOfLiving"
           placeholder="Россия, г. Москва, ул. Ботаническая, 10 кв. 1"
+          value={placeOfLiving}
+          onChange={updateFormField}
           required
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...EMPLOYMENT}  />
-          <RadioInput {...TRIPS} />
+          <RadioInput {...EMPLOYMENT} checkedValue={employment} onChange={updateFormField} />
+          <RadioInput {...TRIPS} checkedValue={trips} onChange={updateFormField} />
         </div>
         <div className="odds-form-line">
-          <RadioInput {...MONEY}  />
-          <RadioInput {...RELATIVES} />
+          <RadioInput {...MONEY} checkedValue={money} onChange={updateFormField} />
+          <RadioInput {...RELATIVES} checkedValue={relatives} onChange={updateFormField} />
         </div>
         <MultiLineInput
           legend="Пожалуйста, укажите или предоставьте любую полезную, на Ваш взгляд, информацию (Ваши личностные преимущества), которая способствует увеличению оценки шансов на иммиграцию"
           name="comment"
           placeholder="Комментарий"
+          value={comment}
+          onChange={updateFormField}
           fill
         />
       </OddsFormWrapper>
