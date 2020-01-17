@@ -164,7 +164,19 @@ const VisaForm = () => {
       <DescriptionTitle title="Оценка шансов на получение визы" />
       <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Visa Form" onSubmit={submitForm}>
         <input type="hidden" name="form-name" value="Visa Form" />
+        <input type="hidden" name="email" />
+        <input type="hidden" name="phone" />
+        <input type="hidden" name="age" />
+        <input type="hidden" name="maritalStatus" />
+        <input type="hidden" name="placeOfLiving" />
+        <input type="hidden" name="haveChildren" />
 
+        <input type="hidden" name="employment" />
+        <input type="hidden" name="trips" />
+        <input type="hidden" name="money" />
+
+        <input type="hidden" name="relatives" />
+        <input type="hidden" name="comment" />
         <div className="odds-form-line">
           <SingleLineInput
             legend="Контактный E-mail"
