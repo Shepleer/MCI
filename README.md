@@ -1,5 +1,11 @@
 <h1>
-  Gatsby's default starter
+  Maple Country Immigration 
 </h1>
-
+<h1>
+  Install guide:
+</h1>
+<ul>
+    <li>Yarn install</li>
+    <li>Gatsby develop</li>
+</ul>
 

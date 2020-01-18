@@ -55,8 +55,8 @@ const ContactForm = ({ popup, onPopupClose, formTitle }) => {
       <div className="contact-form-main">
         <div className="contact-info">
           <input type="hidden" name="form-name" value="Immigration Form" />
+          <input type="hidden" name="fullName" />
           <input type="hidden" name="email" />
-          <input type="hidden" name="phone" />
           <input type="hidden" name="comment" />
           <SingleLineInput
             onChange={updateFormField}

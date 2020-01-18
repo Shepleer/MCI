@@ -208,16 +208,19 @@ const ImmigrationForm = () => {
             onChange={updateFormField}
             required
           />
-          <PhoneInput
-            value={phone}
-            onChange={phone => setFields({
-              ...fields,
-              phone,
-            })}
-            country={"ru"}
-            regions={"europe"}
-            enableAreaCodes={true}
-          />
+          <fieldset className="input-fieldset">
+            <legend className="input-legend">Телефон</legend>
+            <PhoneInput
+              value={phone}
+              onChange={phone => setFields({
+                ...fields,
+                phone,
+              })}
+              country={"ru"}
+              regions={"europe"}
+              enableAreaCodes={true}
+            />
+          </fieldset>
         </div>
         <SingleLineInput
           legend="Ваша фамилия имя и отчество"
