@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from "react"
 import Layout from '../../components/layout';
 import DescriptionTitle from '../../components/DescriptionWrapper/DescriptionTitle';
 import OddsFormWrapper from '../../components/reusable/forms/oddsForm/OddsFormWrapper';
 import SingleLineInput from '../../components/reusable/forms/inputs/SingleLineInput/SingleLineImput';
-import PhoneInput from '../../components/reusable/forms/inputs/phoneInput/PhoneInput';
 import RadioInput from '../../components/reusable/forms/inputs/RadioInput/RadioInput';
 import MultiLineInput from '../../components/reusable/forms/inputs/MultiLineInput/MultiLineInput';
 import FeedbackCall from '../../components/reusable/forms/feedbackCall/FeedbackCall';
+import PhoneInput from "react-phone-input-2";
+import { encode } from "../../utils/utils"
 
 const AGE = {
   title: 'Сколько вам лет',
@@ -70,7 +71,7 @@ const RELATIVES = {
 
 const ENGLISH_LEVEL = {
   title: 'Уровень знания иностранного языка (английского или французского)\n',
-  radioName: 'english level',
+  radioName: 'englishLevel',
   items: [
     {
       label: 'Продвинутый',
@@ -89,7 +90,7 @@ const ENGLISH_LEVEL = {
 
 const EDUCATION_LEVEL = {
   title: 'Образование',
-  radioName: 'education level',
+  radioName: 'educationLevel',
   items: [
     {
       label: 'Высшее',
@@ -105,7 +106,7 @@ const EDUCATION_LEVEL = {
 
 const HAVE_WORK_EXP_CANADA = {
   title: 'Есть ли у Вас опыт работы в Канаде\n',
-  radioName: 'work experience in Canada',
+  radioName: 'workExperienceInCanada',
   items: [
     {
       label: 'Да',
@@ -118,7 +119,7 @@ const HAVE_WORK_EXP_CANADA = {
 
 const LAST_WORK_EXP = {
   title: 'Есть ли у Вас опыт работы за последние 10 лет',
-  radioName: 'work experience over 10 years',
+  radioName: 'workExperienceOver10Years',
   items: [
     {
       label: 'Да',
@@ -131,7 +132,7 @@ const LAST_WORK_EXP = {
 
 const HAVE_CANADA_EDUCATION = {
   title: 'Обучались ли Вы в Канаде',
-  radioName: 'have Canada education',
+  radioName: 'haveCanadaEducation',
   items: [
     {
       label: 'Да',
@@ -143,56 +144,107 @@ const HAVE_CANADA_EDUCATION = {
 };
 
 const ImmigrationForm = () => {
+  const [fields, setFields] = useState({
+    phone: '+',
+  });
 
+  const submitForm = useCallback(event => {
+    event.preventDefault();
+    fetch("https://epic-shockley-4c3cca.netlify.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "Immigration Form", ...fields }),
+    });
+  }, [fields]);
+
+  const updateFormField = useCallback(e => {
+    setFields({
+      ...fields,
+      [e.target.name]: e.target.value,
+    });
+  }, [fields, setFields]);
+
+  const {
+    email,
+    phone,
+    fullName,
+    age,
+    maritalStatus,
+    placeOfLiving,
+    relatives,
+    englishLevel,
+    educationLevel,
+    workExperienceInCanada,
+    workExperienceOver10Years,
+    haveCanadaEducation,
+    comment,
+  } = fields;
 
   return (
     <Layout>
       <DescriptionTitle title="Оценка шансов на получение визы" />
-      <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Immigration Form">
+      <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Immigration Form" onSubmit={submitForm}>
         <div className="odds-form-line">
           <SingleLineInput
             legend="Контактный E-mail"
             name="email"
             type="email"
             placeholder="you@email.com"
+            value={email}
+            onChange={updateFormField}
             required
           />
-          <PhoneInput legend />
+          <PhoneInput
+            value={phone}
+            onChange={phone => setFields({
+              ...fields,
+              phone,
+            })}
+            country={"ru"}
+            regions={"europe"}
+            enableAreaCodes={true}
+          />
         </div>
         <SingleLineInput
           legend="Ваша фамилия имя и отчество"
           name="fullName"
           placeholder="Иванов Иван Иванович"
+          value={fullName}
+          onChange={updateFormField}
           required
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...AGE} />
-          <RadioInput {...MARITAL_STATUS} />
+          <RadioInput {...AGE} checkedValue={age} onChange={updateFormField} />
+          <RadioInput {...MARITAL_STATUS} checkedValue={maritalStatus} onChange={updateFormField} />
         </div>
         <SingleLineInput
           legend="Страна и город проживания"
           name="placeOfLiving"
           placeholder="Россия, г. Москва, ул. Ботаническая, 10 кв. 1"
+          value={placeOfLiving}
+          onChange={updateFormField}
           required
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...RELATIVES} />
-          <RadioInput {...ENGLISH_LEVEL} />
+          <RadioInput {...RELATIVES} checkedValue={relatives} onChange={updateFormField} />
+          <RadioInput {...ENGLISH_LEVEL} checkedValue={englishLevel} onChange={updateFormField} />
         </div>
         <div className="odds-form-line">
-          <RadioInput {...EDUCATION_LEVEL} />
-          <RadioInput {...HAVE_WORK_EXP_CANADA} />
+          <RadioInput {...EDUCATION_LEVEL} checkedValue={educationLevel} onChange={updateFormField} />
+          <RadioInput {...HAVE_WORK_EXP_CANADA} checkedValue={workExperienceInCanada} onChange={updateFormField} />
         </div>
         <div className="odds-form-line">
-          <RadioInput {...LAST_WORK_EXP} />
-          <RadioInput {...HAVE_CANADA_EDUCATION} />
+          <RadioInput {...LAST_WORK_EXP} checkedValue={workExperienceOver10Years} onChange={updateFormField} />
+          <RadioInput {...HAVE_CANADA_EDUCATION} checkedValue={haveCanadaEducation} onChange={updateFormField} />
         </div>
         <MultiLineInput
           legend="Пожалуйста, укажите или предоставьте любую полезную, на Ваш взгляд, информацию (Ваши личностные преимущества), которая способствует увеличению оценки шансов на иммиграцию"
           name="comment"
           placeholder="Комментарий"
+          value={comment}
+          onChange={updateFormField}
           fill
         />
       </OddsFormWrapper>
