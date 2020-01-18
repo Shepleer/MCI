@@ -7,7 +7,7 @@ const OddsFormWrapper = ({ title, name, children, onSubmit }) => {
   return (
     <div className="odds-form-wrapper">
       <h4 className="odds-form-title">{title}</h4>
-      <form className="odds-form" name={name} method="POST" onSubmit={onSubmit} >
+      <form className="odds-form" name={name} method="POST" onSubmit={onSubmit} data-netlify="true" data-netlify-honeypot="bot-field" >
         {children}
         <p className="privacy-policy-label">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
           соглашаетесь c политикой конфиденциальности</p>
