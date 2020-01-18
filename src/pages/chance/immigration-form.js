@@ -184,6 +184,20 @@ const ImmigrationForm = () => {
     <Layout>
       <DescriptionTitle title="Оценка шансов на получение визы" />
       <OddsFormWrapper title="Данная форма позволит оценить Ваши шансы на получение визы" name="Immigration Form" onSubmit={submitForm}>
+        <input type="hidden" name="form-name" value="Immigration Form" />
+        <input type="hidden" name="fullName" />
+        <input type="hidden" name="email" />
+        <input type="hidden" name="phone" />
+        <input type="hidden" name="age" />
+        <input type="hidden" name="maritalStatus" />
+        <input type="hidden" name="placeOfLiving" />
+        <input type="hidden" name="relatives" />
+        <input type="hidden" name="englishLevel" />
+        <input type="hidden" name="educationLevel" />
+        <input type="hidden" name="workExperienceInCanada" />
+        <input type="hidden" name="workExperienceOver10Years" />
+        <input type="hidden" name="haveCanadaEducation" />
+        <input type="hidden" name="comment" />
         <div className="odds-form-line">
           <SingleLineInput
             legend="Контактный E-mail"
