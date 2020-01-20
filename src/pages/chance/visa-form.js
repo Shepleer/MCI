@@ -6,8 +6,9 @@ import OddsFormWrapper from '../../components/reusable/forms/oddsForm/OddsFormWr
 import RadioInput from '../../components/reusable/forms/inputs/RadioInput/RadioInput';
 import SingleLineInput from '../../components/reusable/forms/inputs/SingleLineInput/SingleLineImput';
 import MultiLineInput from '../../components/reusable/forms/inputs/MultiLineInput/MultiLineInput';
-import PhoneInput from "react-phone-input-2";
+import PhoneInputWrapper from "../../components/reusable/forms/inputs/phoneInput/PhoneInput";
 import { encode } from "../../utils/utils";
+
 
 const AGE = {
   title: 'Сколько вам лет',
@@ -186,7 +187,8 @@ const VisaForm = () => {
             placeholder="you@email.com"
             required
           />
-          <PhoneInput
+          <PhoneInputWrapper
+            legend="Контактный телефон"
             value={phone}
             onChange={phone => {
               setFields({
@@ -194,9 +196,6 @@ const VisaForm = () => {
                 phone,
               })
             }}
-            country={"ru"}
-            regions={"europe"}
-            enableAreaCodes={true}
           />
         </div>
         <SingleLineInput
