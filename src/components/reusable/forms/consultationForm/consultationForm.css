@@ -24,6 +24,7 @@
 .consultation-form-row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding-left: 65px;
 }
 
@@ -43,6 +44,28 @@
   font-size: 18px;
   color: #2C384E;
   margin-bottom: 0;
+}
+@media screen and (max-width: 500px) {
+  .consultation-cost {
+    font-size: 14px;
+  }
+}
+
+.paypal-button-container {
+  width: 280px;
+  margin-top: 55px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media screen and (max-width: 768px) {
+  .paypal-button-container {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .paypal-button-container {
+    width: 90%;
+  }
 }
 
 #consultation-form-title {

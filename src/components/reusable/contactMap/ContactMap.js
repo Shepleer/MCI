@@ -168,9 +168,9 @@ const ContactMap = () => {
   const defaultProps = {
     center: {
       lat: 59.95,
-      lng: 30.33
+      lng: 30.33,
     },
-    zoom: 11
+    zoom: 11,
   };
 
   const options = {
@@ -180,9 +180,9 @@ const ContactMap = () => {
   return (
     <div className="contact-map" >
       <p className="contact-map-label">Контактная информация</p>
-      <ContactCard adress="1750 Steeles Ave West, Unit 204, Concord, ON L4K 2L7" phone="+1 (416) 800-8966" email="info@maplecanada.com" />
+      <ContactCard adress="310 Fairway Road South, PO Box 45041, Kitchener, ON N2C 1X0" phone="647-515-6748 (Viber, WhatsApp, Telegram)" email="info@mymci.ca" />
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCVOvl0G1lBbkZc_uPoZ2N_G8kCJLF3nQg" }}
+        bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         options={options}

@@ -53,7 +53,7 @@
 }
 .benefit:hover {
   transition: box-shadow 200ms;
-  box-shadow: 0 18px 40px rgba(235, 87, 87, 0.35);
+  box-shadow: 0px 18px 40px rgba(235, 87, 87, 0.35);
 }
 
 .image-container {
@@ -62,6 +62,9 @@
   justify-content: center;
   min-width: 100px;
   min-height: 100px;
+}
+.image-container img {
+  margin: 0;
 }
 @media screen and (max-width: 527px) {
   .image-container {
@@ -72,6 +75,8 @@
 
 .benefit-title {
   padding-top: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: 16px;
   margin: 0;
   color: #2C384E;

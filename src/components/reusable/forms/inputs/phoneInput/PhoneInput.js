@@ -8,7 +8,7 @@ const PhoneInputWrapper = ({ legend, name='phone', required=true, value, onChang
       <PhoneInput
         value={value}
         onChange={onChange}
-        country={"ru"}
+        country={"ua"}
         regions={"europe"}
         enableAreaCodes={true}
         inputProps={{

@@ -42,7 +42,7 @@ const Footer = () => {
               <Link to="#">Новости</Link>
             </div>
             <div className="footer-column mx-sm-0 mx-md-auto">
-              <Link to="#">вопросы</Link>
+              <Link to="#">Вопросы</Link>
               <Link to="#">Контакты</Link>
             </div>
           </div>
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-container align-items-md-center mb-5" id="footer-copy-social">
-        <div className="copyright footer-column mx-auto">© 2019 Maple. Country immigration</div>
+        <div className="copyright footer-column mx-auto">© 2020 Maple. Country immigration</div>
         <div className="social footer-column mr-xl-6 align-items-center">
           <a className="mr-4 mr-sm-0" href="#"><Image src={fb} /></a>
           <a className="mx-4" href="#"><Image src={instagram} /></a>

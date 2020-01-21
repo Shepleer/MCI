@@ -1,34 +1,29 @@
 import React, { useCallback, useState } from "react";
-import SubmitButton from "../inputs/submitButton/SubmitButton";
 import SingleLineInput from "../inputs/SingleLineInput/SingleLineImput";
 import OptionalInput from "../inputs/optionalInputs/OptionalInput";
-import './consultationForm.sass';
+import "./consultationForm.sass";
 import DatePickerInput from "../inputs/datePicker/DatePickerInput";
-import OddsFormWrapper from "../oddsForm/OddsFormWrapper";
 import { PayPalButton } from "react-paypal-button-v2";
 
 const ConsultationForm = ({ title }) => {
-  const today = new Date();
-  const currentYear = today.getFullYear();
-  const maxDate = new Date();
-  maxDate.setFullYear(currentYear + 1);
   const [fields, setFields] = useState({
-    date: today,
+    date: new Date()
   });
-  const [selectedContactVariant, setContactVariant] = useState('viber');
+  const [selectedContactVariant, setContactVariant] = useState("viber");
 
   const updateFields = useCallback(
     (e) => {
       switch (e.target.type) {
-        case 'radio':
+        case "radio":
           setContactVariant(e.target.value);
           break;
-        case 'tel':
-        case 'text':
+        case "tel":
+        case "text":
         default:
+          console.log(e.target.value);
           setFields({
             ...fields,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
           });
           break;
       }
@@ -51,7 +46,7 @@ const ConsultationForm = ({ title }) => {
     whatsApp,
     viber,
     skype,
-    telegramm
+    telegram
   } = fields;
 
   return (
@@ -66,7 +61,7 @@ const ConsultationForm = ({ title }) => {
         <input type="hidden" name="whatsApp" />
         <input type="hidden" name="viber" />
         <input type="hidden" name="skype" />
-        <input type="hidden" name="telegramm" />
+        <input type="hidden" name="telegram" />
         <div className="consultation-form-row">
           <SingleLineInput
             legend="Ваше имя"
@@ -75,6 +70,7 @@ const ConsultationForm = ({ title }) => {
             value={fullName}
             onChange={updateFields}
             placeholder="Иванов Иван Иванович"
+            fixed
             required
           />
           <SingleLineInput
@@ -84,16 +80,24 @@ const ConsultationForm = ({ title }) => {
             value={email}
             onChange={updateFields}
             placeholder="you@email.com"
+            fixed
             required
           />
         </div>
         <div className="consultation-form-row">
           <DatePickerInput
             selectedDate={date}
-            maxDate={maxDate}
             onChange={date => setFields({
               ...fields,
-              date,
+              date
+            })}
+          />
+          <DatePickerInput
+            selectedDate={time}
+            TimePicker
+            onChange={time => setFields({
+              ...fields,
+              time
             })}
           />
         </div>
@@ -132,13 +136,13 @@ const ConsultationForm = ({ title }) => {
               label="Skype"
             />
             <OptionalInput
-              id="telegramm"
-              radioValue="telegramm"
-              name="telegramm"
+              id="telegram"
+              radioValue="telegram"
+              name="telegram"
               checkedValue={selectedContactVariant}
-              value={telegramm}
+              value={telegram}
               onChange={updateFields}
-              label="Telegramm"
+              label="Telegram"
             />
           </div>
         </div>
@@ -146,39 +150,43 @@ const ConsultationForm = ({ title }) => {
           <p className="consultation-cost">Стоимость: 150 CAD</p>
         </div>
         {/*<SubmitButton title="Отправить" transparent />*/}
-        <PayPalButton
-          options={{
-            clientId: "AUCXq6X1BjOBG6nG_vSIb_ZvydpmEJaNiTVhWCgAbZQ-lf7-EOrVHSdJuNHXYOHUaT1ro0w5C3rXBG9h",
-          }}
-          createOrder={(data, actions) => {
-
-
-            return actions.order.create({
-              purchase_units: [{
-                amount: {
-                  currency_code: "USD",
-                  value: "150"
+        <div className="paypal-button-container">
+          <PayPalButton
+            options={{
+              clientId: "AUCXq6X1BjOBG6nG_vSIb_ZvydpmEJaNiTVhWCgAbZQ-lf7-EOrVHSdJuNHXYOHUaT1ro0w5C3rXBG9h",
+              disableFunding: "card"
+            }}
+            style={{
+              shape: "pill",
+              color: "silver"
+            }}
+            createOrder={(data, actions) => {
+              return actions.order.create({
+                purchase_units: [{
+                  amount: {
+                    currency_code: "CAD",
+                    value: "150"
+                  }
+                }],
+                application_context: {
+                  shipping_preference: "NO_SHIPPING"
                 }
-              }],
-              application_context: {
-                shipping_preference: "NO_SHIPPING" // default is "GET_FROM_FILE"
-              }
-            });
-          }}
-          onApprove={(data, actions) => {
-            // Capture the funds from the transaction
-            return actions.order.capture().then(function(details) {
-              // Show a success message to your buyer
-              alert("Transaction: " + details);
-            });
-          }}
-        />
+              });
+            }}
+            onApprove={(data, actions) => {
+              // Capture the funds from the transaction
+              return actions.order.capture().then(function(details) {
+                // Show a success message to your buyer
+                alert("Transaction: " + details);
+              });
+            }}
+          />
+        </div>
         <p className="privacy-policy-label">Нажимая на кнопку, вы даете согласие на обработку персональных данных и
           соглашаетесь c политикой конфиденциальности</p>
       </form>
     </div>
   );
 };
-
 
 export default ConsultationForm;

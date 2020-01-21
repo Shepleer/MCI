@@ -37,9 +37,7 @@
 
 .privacy-policy-label {
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
+  margin: 30px auto 50px;
   text-align: center;
   font-weight: 300;
   font-size: 12px;
