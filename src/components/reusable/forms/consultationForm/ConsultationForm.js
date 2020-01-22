@@ -7,7 +7,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 
 const ConsultationForm = ({ title }) => {
   const [fields, setFields] = useState({
-    date: new Date()
+    date: null,
   });
   const [selectedContactVariant, setContactVariant] = useState("viber");
 
@@ -86,6 +86,7 @@ const ConsultationForm = ({ title }) => {
         </div>
         <div className="consultation-form-row">
           <DatePickerInput
+            legend="Выбери дату"
             selectedDate={date}
             onChange={date => setFields({
               ...fields,
@@ -93,8 +94,9 @@ const ConsultationForm = ({ title }) => {
             })}
           />
           <DatePickerInput
+            legend="Выберите время"
             selectedDate={time}
-            TimePicker
+            timePicker
             onChange={time => setFields({
               ...fields,
               time
@@ -110,6 +112,7 @@ const ConsultationForm = ({ title }) => {
               id="whatsApp"
               radioValue="whatsApp"
               name="whatsApp"
+              placeholder="Ваш номер WhatsApp"
               checkedValue={selectedContactVariant}
               value={whatsApp}
               onChange={updateFields}
@@ -119,6 +122,7 @@ const ConsultationForm = ({ title }) => {
               id="viber"
               radioValue="viber"
               name="viber"
+              placeholder="Ваш номер Viber"
               checkedValue={selectedContactVariant}
               value={viber}
               onChange={updateFields}
@@ -130,6 +134,7 @@ const ConsultationForm = ({ title }) => {
               id="skype"
               radioValue="skype"
               name="skype"
+              placeholder="Ваш ник или номер Telegram"
               checkedValue={selectedContactVariant}
               value={skype}
               onChange={updateFields}
@@ -139,6 +144,7 @@ const ConsultationForm = ({ title }) => {
               id="telegram"
               radioValue="telegram"
               name="telegram"
+              placeholder="Ваш ник или номер Skape"
               checkedValue={selectedContactVariant}
               value={telegram}
               onChange={updateFields}
@@ -149,7 +155,6 @@ const ConsultationForm = ({ title }) => {
         <div className="consultation-cost-row">
           <p className="consultation-cost">Стоимость: 150 CAD</p>
         </div>
-        {/*<SubmitButton title="Отправить" transparent />*/}
         <div className="paypal-button-container">
           <PayPalButton
             options={{

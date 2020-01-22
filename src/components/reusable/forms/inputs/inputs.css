@@ -15,8 +15,12 @@
   }
 }
 
+.one-line-input:disabled {
+  color: #8C939F;
+}
+
 .fill-input {
-  width: 100%;
+  width: 100% !important;
 }
 
 .multiline-input {
@@ -39,10 +43,26 @@
 .input-fieldset {
   border: none;
   margin: 0 0 35px;
-  width: 100%;
+  width: 290px;
 }
 @media screen and (max-width: 1280px) and (min-width: 760px) {
   .input-fieldset {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 760px) {
+  .input-fieldset {
+    width: 100%;
+  }
+}
+
+.multiline-input-fieldset {
+  border: none;
+  margin: 0 0 35px;
+  width: 100%;
+}
+@media screen and (max-width: 1280px) and (min-width: 760px) {
+  .multiline-input-fieldset {
     margin: 0;
   }
 }
@@ -67,6 +87,16 @@
 @media screen and (max-width: 760px) {
   .odds-form-line {
     flex-direction: column;
+  }
+}
+
+.optional-input-wrapper {
+  width: 290px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 760px) {
+  .optional-input-wrapper {
+    width: 100%;
   }
 }
 

@@ -222,6 +222,7 @@ const ImmigrationForm = () => {
             />
           </fieldset>
         </div>
+
         <SingleLineInput
           legend="Ваша фамилия имя и отчество"
           name="fullName"

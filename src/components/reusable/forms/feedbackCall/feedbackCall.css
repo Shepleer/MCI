@@ -46,4 +46,12 @@
   margin: 15px;
 }
 
+.feedback-call-form .react-tel-input {
+  max-width: 290px;
+}
+
+.feedback-call-form .react-tel-input .flag-dropdown .flag .arrow {
+  left: 20px;
+}
+
 /*# sourceMappingURL=feedbackCall.css.map */

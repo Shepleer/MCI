@@ -1,5 +1,11 @@
+$calendar: url("./../../../../../images/inputs/calendar-pic.svg")
+$clock: url("./../../../../../images/inputs/clock-pic.svg")
+
+.react-datepicker-wrapper
+  width: 100%
+
 .date-input
-  width: 200px
+  width: 210px
   height: 52px
   background: #F7F8FA
   border: 1px solid #ECECEC
@@ -10,6 +16,14 @@
   font-weight: 400
   text-indent: 30px
   color: #2C384E
+  @media screen and (max-width: 760px)
+    width: 100%
+
+.date-picker-image
+  background: #F7F8FA $calendar no-repeat 90% 50%
+
+.time-picker-image
+  background: #F7F8FA $clock no-repeat 90% 50%
 
 .calendar
   width: 324px
@@ -60,6 +74,15 @@
   border: none
   p
     margin: 0
+
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__day--keyboard-selected:hover,
+.react-datepicker__month-text--keyboard-selected:hover,
+.react-datepicker__quarter-text--keyboard-selected:hover
+  background-color: #C6392B
+  color: #FFFFFF !important
 
 .react-datepicker__day-name
   height: 32px

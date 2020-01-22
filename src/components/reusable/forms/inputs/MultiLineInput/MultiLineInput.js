@@ -6,7 +6,7 @@ const MultiLineInput = ({ legend, name, onChange, value, placeholder, id = null,
   }
 
   return (
-    <fieldset id={fieldsetId} className="input-fieldset">
+    <fieldset id={fieldsetId} className="multiline-input-fieldset">
       {!!legend && <legend className="input-legend">{legend}</legend>}
       <textarea id={id} className={className} name={name} onChange={onChange} value={value} placeholder={placeholder} required={required} />
     </fieldset>

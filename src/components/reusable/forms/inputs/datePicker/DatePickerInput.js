@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import DatePicker, { setDefaultLocale, registerLocale } from "react-datepicker";
+import React from "react";
+import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./datePicker.sass";
-import ru from 'date-fns/locale/ru';
+import ru from "date-fns/locale/ru";
 
-registerLocale('ru', ru);
+registerLocale("ru", ru);
 
 const months = [
   "Январь",
@@ -18,11 +18,11 @@ const months = [
   "Сентябрь",
   "Октябрь",
   "Ноябрь",
-  "Декабрь",
+  "Декабрь"
 ];
 
 const DateInput = (props) => {
-  return <input type="text" {...props} />
+  return <input type="text" {...props} />;
 };
 
 const renderHeader = ({
@@ -30,13 +30,13 @@ const renderHeader = ({
   decreaseMonth,
   increaseMonth,
   prevMonthButtonDisabled,
-  nextMonthButtonDisabled,
+  nextMonthButtonDisabled
 }) => {
   const currentMonth = date.getMonth();
   const prevMonth = currentMonth === 0 ? 11 : currentMonth - 1;
   const nextMonth = currentMonth === 11 ? 0 : currentMonth + 1;
   return (
-    <div className="date-picker-header" >
+    <div className="date-picker-header">
       <button className="change-month-button" onClick={decreaseMonth} disabled={prevMonthButtonDisabled} type="button">
         <p>{months[prevMonth]}</p>
       </button>
@@ -50,31 +50,34 @@ const renderHeader = ({
   );
 };
 
-const DatePickerInput = ({ selectedDate, onChange, TimePicker=false }) => {
+const DatePickerInput = ({ selectedDate, onChange, legend, timePicker = false, fieldsetId=undefined }) => {
 
   const today = new Date();
   const maxDate = new Date().setFullYear(today.getFullYear() + 1);
 
-  const placeholder = TimePicker ? '00:00' : 'ДД/ММ/ГГГГ';
+  const placeholder = timePicker ? "00:00" : "ДД/ММ/ГГГГ";
 
   return (
-    <DatePicker
-      showPopperArrow={false}
-      selected={selectedDate}
-      onChange={onChange}
-      minDate={today}
-      maxDate={maxDate}
-      dateFormat="dd/MM/yyyy"
-      locale="ru"
-      className="date-input"
-      calendarClassName="calendar"
-      dayClassName={() => "calendar-day"}
-      showTimeSelect={TimePicker}
-      showTimeSelectOnly={TimePicker}
-      customInput={<DateInput/>}
-      renderCustomHeader={renderHeader}
-      placeholder={placeholder}
-    />
+    <fieldset id={fieldsetId} className="input-fieldset">
+      { legend && <legend className="input-legend">{legend}</legend>}
+      <DatePicker
+        showPopperArrow={false}
+        selected={selectedDate}
+        onChange={onChange}
+        minDate={today}
+        maxDate={maxDate}
+        dateFormat="dd/MM/yyyy"
+        locale="ru"
+        className={`date-input ${timePicker ? 'time-picker-image' : 'date-picker-image' }`}
+        calendarClassName="calendar"
+        dayClassName={() => "calendar-day"}
+        showTimeSelect={timePicker}
+        showTimeSelectOnly={timePicker}
+        customInput={<DateInput />}
+        renderCustomHeader={renderHeader}
+        placeholderText={placeholder}
+      />
+    </fieldset>
   );
 };
 
