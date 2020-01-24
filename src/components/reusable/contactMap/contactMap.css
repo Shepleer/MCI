@@ -1,10 +1,8 @@
 .contact-map {
   position: relative;
   width: 1095px;
-  height: 541px;
-  margin: auto;
-  margin-top: 150px;
-  margin-bottom: 150px;
+  height: 580px;
+  margin: 150px auto;
 }
 .contact-map div {
   border-radius: 15px;
@@ -17,6 +15,27 @@
   text-transform: uppercase;
   color: #2C384E;
   margin-left: 140px;
+}
+
+@media screen and (max-width: 1280px) {
+  .contact-map {
+    width: 770px;
+    height: 380px;
+  }
+
+  .contact-map-label {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 820px) {
+  .contact-map {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 580px) {
+  .gm-control-active .gm-fullscreen-control {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=contactMap.css.map */

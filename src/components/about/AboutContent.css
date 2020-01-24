@@ -9,6 +9,7 @@
   font-weight: bold;
   font-size: 46px;
   margin-bottom: 65px;
+  color: #2C384E;
 }
 .about-content-container p {
   font-weight: 300;
@@ -30,6 +31,7 @@
     margin-right: 15px;
   }
   .about-content-container h2 {
+    margin-bottom: 35px;
     font-size: 24px;
   }
   .about-content-container p {

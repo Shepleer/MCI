@@ -43,6 +43,9 @@ const NewsList = ({ data, pageContext }) => {
             fields: { slug }
           } = node;
           const reverse = ++index % 2 === 0;
+
+
+
           return <NewsItem title={title} text={detail} date={publishDate} image={src} pathToItem={slug} reverse={reverse} />;
         })
       }

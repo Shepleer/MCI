@@ -1,16 +1,67 @@
 .news-item
   display: flex
   flex-direction: row
-  margin: auto auto
+  margin: 100px auto
   width: 1090px
   justify-content: space-between
+  a
+    width: 205px
+    height: 40px
 
 .news-item-reverse
   flex-direction: row-reverse
-  justify-content: flex-start
 
+.news-item-reverse .news-preview
+  margin-left: 30px
+  max-width: 100%
+  p
+    max-width: 353px
 
 .news-image
+  width: 530px
+  margin: 0
+  box-shadow: 0 24px 40px rgba(191, 188, 188, 0.35)
 
 .news-preview
   max-width: 353px
+
+.post-publish-date
+  font-size: 13px
+  font-weight: 300
+  line-height: 21px
+  color: #999999
+
+.post-title
+  font-size: 18px
+  font-weight: 700
+  line-height: 25px
+  color: #2C384E
+
+.post-detail-label
+  font-size: 14px
+  font-weight: 300
+  line-height: 21px
+  color: #656769
+
+@media screen and (max-width: 1215px)
+  .news-item
+    width: 775px
+  .news-image
+    width: 365px
+
+@media screen and (max-width: 850px)
+  .news-item
+    width: 90%
+    max-width: 616px
+    flex-direction: column-reverse
+    overflow: hidden
+  .news-image
+    width: 616px
+
+@media screen and (max-width: 850px)
+  .news-item-reverse
+    .news-preview
+      margin-left: 0
+      max-width: available
+      p
+        max-width: available

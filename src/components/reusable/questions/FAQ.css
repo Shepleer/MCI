@@ -95,6 +95,7 @@
 .question-indicator {
   height: 15px;
   width: 15px;
+  min-width: 15px;
   border-radius: 50%;
   background-color: #999999;
   margin-right: 15px;

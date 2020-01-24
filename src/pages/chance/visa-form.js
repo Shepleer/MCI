@@ -21,7 +21,7 @@ const AGE = {
       label: '18-25',
     },
     {
-      label: '26-25',
+      label: '26-64',
     },
     {
       label: '65+',
@@ -190,6 +190,7 @@ const VisaForm = () => {
           <PhoneInputWrapper
             legend="Контактный телефон"
             value={phone}
+            country={"ua"}
             onChange={phone => {
               setFields({
                 ...fields,

@@ -216,7 +216,7 @@ const ImmigrationForm = () => {
                 ...fields,
                 phone,
               })}
-              country={"ru"}
+              country={"ua"}
               regions={"europe"}
               enableAreaCodes={true}
             />

@@ -6,9 +6,9 @@ const NewsItem = ({ title, text, date, image, pathToItem, reverse }) => {
   return (
     <div className={`news-item ${reverse ? 'news-item-reverse' : ''}`}>
       <div className="news-preview">
-        <p>{date}</p>
-        <p>{title}</p>
-        <p>{text}</p>
+        <p className="post-publish-date">{date}</p>
+        <p className="post-title">{title}</p>
+        <p className="post-detail-label">{text}</p>
         <AccentButton to={pathToItem} title="Читать далее" transparent />
       </div>
       <img className="news-image" src={image} />
