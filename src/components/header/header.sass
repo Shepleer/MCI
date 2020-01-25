@@ -5,7 +5,7 @@ $whiteColor: #FFF
 $borderColor: #ECEDF3
 
 .navigation-header
-  @media screen and (max-width: 960px)
+  @media screen and (max-width: 1120px)
     display: none
 
 .on-content-layout
@@ -17,76 +17,15 @@ $borderColor: #ECEDF3
   @media screen and (max-width: 500px)
     padding: 0 15px
 
-.separator
-  border-bottom: 1px solid $borderColor
-
-#header-accent-button
-  @media screen and (max-width: 1180px)
-    width: 244px
-
-.meta-nav
-  display: flex
-  flex-direction: row
-  align-items: center
-  justify-content: space-between
-  width: 100%
-  height: 85px
-
-.meta-links
-  display: flex
-  flex-direction: row
-  align-items: center
-  img
-    margin: 0
-
-.meta-link
-  font-size: 14px
-  color: $linkColor
-  text-decoration: none
-  font-weight: 400
-  margin-left: 37.5px
-  @media screen and (max-width: 1180px)
-    margin-left: 20px
-
-.chance-link
-  display: flex
-  flex-direction: row
-  align-items: center
-  h3
-    color: #E1493A
-    font-size: 18px
-    font-weight: 700
-    margin-bottom: 0
-    margin-right: 38px
-    @media screen and (max-width: 1180px)
-      margin-right: 20px
-  a
-    height: 35px
-
-.content-nav
-  position: relative
-  box-shadow: 0px 2px 2px rgba(201, 201, 201, 0.25)
-  z-index: 16
-
-.content-links
-  display: flex
-  flex-direction: row
-  align-items: center
-  height: 51px
-  z-index: 15
-
 .content-link
   display: flex
-  margin-right: 35px
   font-size: 12px
   color: #2C384E
   text-transform: uppercase
-  height: 45px
+  height: 60px
   align-items: center
   &:hover
     color: #BA3325
-  @media screen and (max-width: 1180px)
-    margin-right: 15px
   a
     margin-right: 5px
     color: inherit
@@ -98,11 +37,13 @@ $borderColor: #ECEDF3
   display: flex
   flex-direction: column
   height: 205px
-  top: 51px
+  top: 100px
   z-index: 15
-  a
-    margin: 12px 12px 12px 0
 
+.detail-content-link
+  height: 40px
+  a
+    margin: 0 12px 0 0
 
 .detail-background
   position: absolute
@@ -110,8 +51,58 @@ $borderColor: #ECEDF3
   width: 100%
   background-color: #F9F9F9
   box-shadow: 0px 2px 2px rgba(201, 201, 201, 0.25)
-  top: 52px
+  top: 100px
   z-index: 10
+
+#header-logo
+  margin-left: 55px
+  @media screen and (max-width: 1180px)
+    margin-left: 30px
+  @media screen and (max-width: 960px)
+    margin-left: 73px
+  @media screen and (max-width: 500px)
+    margin-left: 15px
+
+
+.meta-nav
+  display: flex
+  flex-direction: row-reverse
+  align-items: center
+  background-color: #F9F9F9
+  height: 40px
+  span
+    margin-left: 43px
+
+.main-nav
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  height: 60px
+  box-shadow: 0px 5px 10px rgba(201, 201, 201, 0.25)
+
+.header-logo img
+  margin: 0
+
+
+.header-link
+
+
+#accent-link
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 300px
+  height: 60px
+  font-size: 12px
+  text-align: center
+  line-height: 30px
+  color: #FFFFFF
+  background-color: #E1493A
+  transition: background-color 400ms cubic-bezier(0.16, 0.68, 0.43, 0.99)
+  &:hover
+    background-color: #BA3325
 
 .hidden
   display: none
+

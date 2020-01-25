@@ -3,23 +3,9 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./datePicker.sass";
 import ru from "date-fns/locale/ru";
+import { Months } from "../../../../../utils/utils";
 
 registerLocale("ru", ru);
-
-const months = [
-  "Январь",
-  "Февраль",
-  "Март",
-  "Апрель",
-  "Май",
-  "Июнь",
-  "Июль",
-  "Август",
-  "Сентябрь",
-  "Октябрь",
-  "Ноябрь",
-  "Декабрь"
-];
 
 const DateInput = (props) => {
   return <input type="text" {...props} />;
@@ -38,13 +24,13 @@ const renderHeader = ({
   return (
     <div className="date-picker-header">
       <button className="change-month-button" onClick={decreaseMonth} disabled={prevMonthButtonDisabled} type="button">
-        <p>{months[prevMonth]}</p>
+        <p>{Months[prevMonth]}</p>
       </button>
       <button className="current-date" type="button" disabled>
-        <p>{`${months[currentMonth]}, ${date.getFullYear()}`}</p>
+        <p>{`${Months[currentMonth]}, ${date.getFullYear()}`}</p>
       </button>
       <button className="change-month-button" onClick={increaseMonth} disabled={nextMonthButtonDisabled} type="button">
-        <p>{months[nextMonth]}</p>
+        <p>{Months[nextMonth]}</p>
       </button>
     </div>
   );

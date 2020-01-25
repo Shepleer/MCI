@@ -16,6 +16,7 @@
 
 .news-item-reverse .news-preview {
   margin-left: 30px;
+  width: 100%;
   max-width: 100%;
 }
 .news-item-reverse .news-preview p {
@@ -54,6 +55,10 @@
 }
 
 @media screen and (max-width: 1215px) {
+  .news-item-reverse .news-preview {
+    margin-left: 45px;
+  }
+
   .news-item {
     width: 775px;
   }
@@ -73,14 +78,21 @@
   .news-image {
     width: 616px;
   }
-}
-@media screen and (max-width: 850px) {
+
+  .news-preview {
+    margin-top: 40px;
+  }
+
+  .news-preview {
+    max-width: 100%;
+  }
+
   .news-item-reverse .news-preview {
     margin-left: 0;
-    max-width: available;
+    max-width: 100%;
   }
   .news-item-reverse .news-preview p {
-    max-width: available;
+    max-width: 100%;
   }
 }
 

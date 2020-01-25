@@ -19,7 +19,7 @@ const links = [
 const NewsContentItem = ({ image, markdown, }) => {
   return (
     <div className="post-item-wrapper">
-      <img src={image} />
+      <img className="post-item-image" src={image} />
       <MainText html={markdown} />
     </div>
   );

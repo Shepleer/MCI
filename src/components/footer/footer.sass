@@ -1,94 +1,157 @@
-$footerColor: #F9F9F9
-$accentColor: #E44C3B
-$fontColor: #8C939F
-$footerBorderColor: #ECEDF3
-$footerBackground: url("./../../images/other/footerBackground.png")
+//$footerColor: #F9F9F9
+//$accentColor: #E44C3B
+//$fontColor: #8C939F
+//$footerBorderColor: #ECEDF3
+//$footerBackground: url("./../../images/other/footerBackground.png")
+//
+//footer
+//  display: flex
+//  position: relative
+//  flex-direction: column
+//  background-color: $footerColor
+//  border-top: 1px solid $footerBorderColor
+//  font-size: 14px
+//  font-weight: 400
+//  color: $fontColor
+//  a
+//    color: $fontColor
+//  //&:before
+//  //  position: absolute
+//  //  bottom: 0
+//  //  left: 0
+//  //  margin-bottom: 412px
+//  //  z-index: -1
+//  //  content: ''
+//  //  min-height: 509px
+//  //  width: 100%
+//  //  background-image: $footerBackground
+//  //  background-position: top
+//  //  background-repeat: no-repeat
+//
+//.footer-container
+//  display: flex
+//  padding-top: 85px
+//
+//.footer-column
+//  display: flex
+//  flex-direction: column
+//
+//#footer-phone-number
+//  font-size: 24px
+//  font-weight: 700
+//
+//#up-button
+//  width: 52px
+//  height: 52px
+//  align-self: flex-end
+//  justify-self: flex-end
+//  background-color: transparent
+//  border: none
+//  background-image: url("./../../images/footer/up-arrow.png")
+//
+//#footer-meta-links
+//  @media screen and (max-width: 768px)
+//    display: flex
+//    flex-direction: column
+//
+//#footer-links
+//  @media screen and (max-width: 768px)
+//    flex-direction: column
+//
+//#footer-copy-social
+//  @media screen and (max-width: 768px)
+//    flex-direction: column-reverse
+//    justify-content: space-between
+//    height: 150px
+//  @media screen and (min-width: 768px) and (max-width: 1280px)
+//    padding-left: 48px
+//    padding-right: 48px
+//
+//.copyright
+//  display: flex
+//
+//.social
+//  display: flex
+//  flex-direction: row
+//  align-items: center
+//  justify-content: center
+//  justify-items: center
+//
+//.ml-xl-up-button
+//  @media screen and (min-width: 1280px)
+//    margin-left: 275px
+//
+//.mr-xl-footer-links
+//  @media screen and (min-width: 1280px)
+//    margin-right: 230px
+//
+//.up-button-mobile
+//  background-color: $accentColor
+//  border: none
+//  padding-top: 4px
+//  padding-bottom: 4px
+//  justify-content: center
+//
 
-footer
-  display: flex
-  position: relative
-  flex-direction: column
-  background-color: $footerColor
-  border-top: 1px solid $footerBorderColor
-  font-size: 14px
-  font-weight: 400
-  color: $fontColor
-  a
-    color: $fontColor
-  //&:before
-  //  position: absolute
-  //  bottom: 0
-  //  left: 0
-  //  margin-bottom: 412px
-  //  z-index: -1
-  //  content: ''
-  //  min-height: 509px
-  //  width: 100%
-  //  background-image: $footerBackground
-  //  background-position: top
-  //  background-repeat: no-repeat
 
 .footer-container
   display: flex
-  padding-top: 85px
+  flex-direction: row
+  justify-content: space-between
+  flex-wrap: wrap
+  min-height: 370px
+  padding-left: 110px
+  padding-right: 135px
+  padding-top: 60px
+  padding-bottom: 35px
+  background-color: #F9F9F9
 
-.footer-column
+.footer-logo-contact
   display: flex
   flex-direction: column
+  align-items: center
+  justify-content: space-between
+  max-height: 180px
 
-#footer-phone-number
-  font-size: 24px
-  font-weight: 700
-
-#up-button
-  width: 52px
-  height: 52px
-  align-self: flex-end
-  justify-self: flex-end
-  background-color: transparent
-  border: none
-  background-image: url("./../../images/footer/up-arrow.png")
-
-#footer-meta-links
-  @media screen and (max-width: 768px)
-    display: flex
-    flex-direction: column
-
-#footer-links
-  @media screen and (max-width: 768px)
-    flex-direction: column
-
-#footer-copy-social
-  @media screen and (max-width: 768px)
-    flex-direction: column-reverse
-    justify-content: space-between
-    height: 150px
-  @media screen and (min-width: 768px) and (max-width: 1280px)
-    padding-left: 48px
-    padding-right: 48px
-
-.copyright
-  display: flex
-
-.social
+.footer-links
   display: flex
   flex-direction: row
-  align-items: center
-  justify-content: center
-  justify-items: center
+  justify-content: space-between
+  flex-wrap: wrap
 
-.ml-xl-up-button
-  @media screen and (min-width: 1280px)
-    margin-left: 275px
+.footer-links-column
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  max-height: 180px
 
-.mr-xl-footer-links
-  @media screen and (min-width: 1280px)
-    margin-right: 230px
+.footer-links-column a
+  font-size: 14px
+  line-height: 16px
+  color: #8C939F
 
-.up-button-mobile
-  background-color: $accentColor
-  border: none
-  padding-top: 4px
-  padding-bottom: 4px
-  justify-content: center
+.footer-links-column a:hover
+  color: #C6392B
 
+.footer-svg-button:hover g path
+  fill: #C6392B
+
+.footer-svg-button:hover path
+  fill: #C6392B
+
+.svg-layout
+  margin-right: 10px
+
+#viber-svg:hover path:nth-child(1)
+  fill: #C6392B
+
+.footer-contact-link
+  font-size: 13px
+  line-height: 15px
+  color: #8C939F
+  &:hover
+    color: #C6392B
+    .footer-svg-button g path
+      fill: #C6392B
+    .footer-svg-button path
+      fill: #C6392B

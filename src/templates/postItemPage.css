@@ -4,4 +4,10 @@
   align-items: center;
 }
 
+.post-item-image {
+  width: 100%;
+  max-width: 785px;
+  object-fit: cover;
+}
+
 /*# sourceMappingURL=postItemPage.css.map */

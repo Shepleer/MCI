@@ -152,6 +152,6 @@ collections:
       - { label:  "Title", name: "title", widget: "string"}
       - { label: "Detail", name: "detail", widget: "string" }
       - { label: "Cover image", name: "coverImage", widget: "image" }
-      - { label: "Publish date", name: "publishDate", widget: "datetime", default: "", dateFormat: true, timeFormat: false }
+      - { label: "Publish date", name: "publishDate", widget: "datetime", default: "", dateFormat: "DD/MM/YYYY", timeFormat: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
