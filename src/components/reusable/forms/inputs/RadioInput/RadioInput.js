@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RadioInput = ({ title, radioName, items, checkedValue, onChange }) => {
+const RadioInput = ({ title, error, radioName, items, checkedValue, onChange }) => {
   return (
     <fieldset className="input-fieldset radio-fieldset">
       <legend className="input-legend">{title}</legend>
@@ -16,6 +16,7 @@ const RadioInput = ({ title, radioName, items, checkedValue, onChange }) => {
           );
         })
       }
+      {error && <p className="input-error-label">{error}</p>}
     </fieldset>
   );
 };

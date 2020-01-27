@@ -128,6 +128,10 @@
   background-color: #BA3325;
 }
 
+.detail-arrow {
+  transform: rotate(-90deg);
+}
+
 .hidden {
   display: none;
 }

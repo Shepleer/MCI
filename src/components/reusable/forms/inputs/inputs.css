@@ -148,4 +148,16 @@
   }
 }
 
+.input-error-active {
+  border-color: red;
+}
+
+.input-error-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #C6392B;
+  margin: 0;
+  margin-top: 10px;
+}
+
 /*# sourceMappingURL=inputs.css.map */

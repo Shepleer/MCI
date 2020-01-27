@@ -4,12 +4,65 @@ import OptionalInput from "../inputs/optionalInputs/OptionalInput";
 import "./consultationForm.sass";
 import DatePickerInput from "../inputs/datePicker/DatePickerInput";
 import { PayPalButton } from "react-paypal-button-v2";
+import {
+  encode,
+  errorRequiredLabel,
+  isValid,
+  validateEmail
+} from "../../../../utils/utils";
+
+const fieldsToValidate = ['fullName', 'email', 'date', 'time'];
 
 const ConsultationForm = ({ title }) => {
   const [fields, setFields] = useState({
     date: null,
+    time: null,
   });
-  const [selectedContactVariant, setContactVariant] = useState("viber");
+  const [selectedContactVariant, setContactVariant] = useState("whatsApp");
+  const [errors, setErrors] = useState({});
+
+  const clearErrors = useCallback(() => {
+    setErrors({});
+  }, [setErrors]);
+
+  const setError = useCallback((name, value) => {
+    setErrors(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, [setErrors]);
+
+  const validateForm = useCallback((validationFields) => {
+    let isFormValid = true;
+    validationFields.forEach((field) => {
+      switch (field) {
+        case 'email':
+          if (!validateEmail(fields.email)) {
+            setError('email', errorRequiredLabel);
+            isFormValid = false;
+          }
+          break;
+        case 'date':
+          if (!fields.date) {
+            setError('date', 'Пожалуйста, введите дату в формате ДД/ММ/ГГГГ');
+            isFormValid = false;
+          }
+          break;
+        case 'time':
+          if (!fields.time) {
+            setError('time', 'Пожалуйста, введите время в формате ЧЧ:ММ');
+            isFormValid = false;
+          }
+          break;
+        default:
+          if (!isValid(fields[field])) {
+            setError(field, errorRequiredLabel);
+            isFormValid = false;
+          }
+      }
+    });
+    return isFormValid;
+  }, [fields, setError]);
 
   const updateFields = useCallback(
     (e) => {
@@ -20,7 +73,6 @@ const ConsultationForm = ({ title }) => {
         case "tel":
         case "text":
         default:
-          console.log(e.target.value);
           setFields({
             ...fields,
             [e.target.name]: e.target.value
@@ -38,6 +90,36 @@ const ConsultationForm = ({ title }) => {
     },
     [fields, selectedContactVariant]);
 
+  const createOrder = useCallback((data, actions) => {
+    clearErrors();
+    if (!validateForm([...fieldsToValidate, selectedContactVariant])) {
+      return;
+    }
+
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          currency_code: "CAD",
+          value: "150"
+        }
+      }],
+      application_context: {
+        shipping_preference: "NO_SHIPPING"
+      }
+    });
+  }, [validateForm, selectedContactVariant]);
+
+  const onApprove = useCallback(async (data, actions) => {
+
+    const details = await actions.order.capture();
+
+    await fetch("https://epic-shockley-4c3cca.netlify.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "consultation", ...fields, "orderID": data.orderID }),
+    });
+  }, [fields]);
+
   const {
     fullName,
     email,
@@ -52,7 +134,7 @@ const ConsultationForm = ({ title }) => {
   return (
     <div className="consultation-form-wrapper">
       <h4 id="consultation-form-title" className="consultation-form-label">{title}</h4>
-      <form className="consultation-form" method="POST" onSubmit={onSubmit}>
+      <form name="consultation" className="consultation-form" method="POST">
         <input type="hidden" name="form-name" value="Consultation" />
         <input type="hidden" name="fullName" />
         <input type="hidden" name="email" />
@@ -62,32 +144,34 @@ const ConsultationForm = ({ title }) => {
         <input type="hidden" name="viber" />
         <input type="hidden" name="skype" />
         <input type="hidden" name="telegram" />
+        <input type="hidden" name="orderID" />
         <div className="consultation-form-row">
           <SingleLineInput
             legend="Ваше имя"
             name="fullName"
             type="text"
             value={fullName}
+            error={errors.fullName}
             onChange={updateFields}
             placeholder="Иванов Иван Иванович"
             fixed
-            required
           />
           <SingleLineInput
             legend="Контактный E-mail"
             name="email"
             type="email"
             value={email}
+            error={errors.email}
             onChange={updateFields}
             placeholder="you@email.com"
             fixed
-            required
           />
         </div>
         <div className="consultation-form-row">
           <DatePickerInput
-            legend="Выбери дату"
+            legend="Выберите дату"
             selectedDate={date}
+            error={errors.date}
             onChange={date => setFields({
               ...fields,
               date
@@ -96,6 +180,7 @@ const ConsultationForm = ({ title }) => {
           <DatePickerInput
             legend="Выберите время"
             selectedDate={time}
+            error={errors.time}
             timePicker
             onChange={time => setFields({
               ...fields,
@@ -115,6 +200,7 @@ const ConsultationForm = ({ title }) => {
               placeholder="Ваш номер WhatsApp"
               checkedValue={selectedContactVariant}
               value={whatsApp}
+              error={errors.whatsApp}
               onChange={updateFields}
               label="WhatsApp"
             />
@@ -125,6 +211,7 @@ const ConsultationForm = ({ title }) => {
               placeholder="Ваш номер Viber"
               checkedValue={selectedContactVariant}
               value={viber}
+              error={errors.viber}
               onChange={updateFields}
               label="Viber"
             />
@@ -137,6 +224,7 @@ const ConsultationForm = ({ title }) => {
               placeholder="Ваш ник или номер Telegram"
               checkedValue={selectedContactVariant}
               value={skype}
+              error={errors.skype}
               onChange={updateFields}
               label="Skype"
             />
@@ -147,6 +235,7 @@ const ConsultationForm = ({ title }) => {
               placeholder="Ваш ник или номер Skape"
               checkedValue={selectedContactVariant}
               value={telegram}
+              error={errors.telegram}
               onChange={updateFields}
               label="Telegram"
             />
@@ -158,33 +247,16 @@ const ConsultationForm = ({ title }) => {
         <div className="paypal-button-container">
           <PayPalButton
             options={{
-              clientId: "AUCXq6X1BjOBG6nG_vSIb_ZvydpmEJaNiTVhWCgAbZQ-lf7-EOrVHSdJuNHXYOHUaT1ro0w5C3rXBG9h",
-              disableFunding: "card"
+              clientId: process.env.PAYPAL_CLIENT_ID,
+              disableFunding: "card",
+              currency: "CAD",
             }}
             style={{
               shape: "pill",
               color: "silver"
             }}
-            createOrder={(data, actions) => {
-              return actions.order.create({
-                purchase_units: [{
-                  amount: {
-                    currency_code: "CAD",
-                    value: "150"
-                  }
-                }],
-                application_context: {
-                  shipping_preference: "NO_SHIPPING"
-                }
-              });
-            }}
-            onApprove={(data, actions) => {
-              // Capture the funds from the transaction
-              return actions.order.capture().then(function(details) {
-                // Show a success message to your buyer
-                alert("Transaction: " + details);
-              });
-            }}
+            createOrder={createOrder}
+            onApprove={onApprove}
           />
         </div>
         <p className="privacy-policy-label">Нажимая на кнопку, вы даете согласие на обработку персональных данных и

@@ -7,8 +7,10 @@ import RadioInput from '../../components/reusable/forms/inputs/RadioInput/RadioI
 import SingleLineInput from '../../components/reusable/forms/inputs/SingleLineInput/SingleLineImput';
 import MultiLineInput from '../../components/reusable/forms/inputs/MultiLineInput/MultiLineInput';
 import PhoneInputWrapper from "../../components/reusable/forms/inputs/phoneInput/PhoneInput";
-import { encode } from "../../utils/utils";
+import { encode, errorRequiredLabel, isValid, validateEmail, validatePhone } from "../../utils/utils";
 
+
+const fieldsToValidate = ['email', 'phone', 'fullName', 'age', 'maritalStatus', 'placeOfLiving', 'haveChildren', 'employment', 'trips', 'money', 'relatives'];
 
 const AGE = {
   title: 'Сколько вам лет',
@@ -126,11 +128,16 @@ const VisaForm = () => {
 
   const [fields, setFields] = useState({
     phone: '+',
-    age: '',
   });
+  const [errors, setErrors] = useState({});
 
   const submitForm = useCallback(event => {
     event.preventDefault();
+    clearErrors();
+    if (!validateForm()) {
+      return;
+    }
+
     fetch("https://epic-shockley-4c3cca.netlify.com", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -144,6 +151,43 @@ const VisaForm = () => {
       [e.target.name]: e.target.value,
     });
   }, [fields, setFields]);
+
+  const clearErrors = useCallback(() => {
+    setErrors({});
+  }, [setErrors]);
+
+  const setError = useCallback((name, value) => {
+    setErrors(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  }, [setErrors]);
+
+  const validateForm = useCallback(() => {
+    let isFormValid = true;
+    fieldsToValidate.forEach((field) => {
+      switch (field) {
+        case 'email':
+          if (!validateEmail(fields.email)) {
+            setError('email', errorRequiredLabel);
+            isFormValid = false;
+          }
+          break;
+        case 'phone':
+          if (!validatePhone(fields.phone)) {
+            setError('phone', errorRequiredLabel);
+            isFormValid = false;
+          }
+          break;
+        default:
+          if (!isValid(fields[field])) {
+            setError(field, errorRequiredLabel);
+            isFormValid = false;
+          }
+      }
+    });
+    return isFormValid;
+  }, [fields, setError, errors]);
 
   const {
     email,
@@ -181,16 +225,16 @@ const VisaForm = () => {
           <SingleLineInput
             legend="Контактный E-mail"
             name="email"
-            type="email"
             value={email}
+            error={errors.email}
             onChange={updateFormField}
             placeholder="you@email.com"
-            required
           />
           <PhoneInputWrapper
             legend="Контактный телефон"
             value={phone}
             country={"ua"}
+            error={errors.phone}
             onChange={phone => {
               setFields({
                 ...fields,
@@ -204,31 +248,31 @@ const VisaForm = () => {
           name="fullName"
           placeholder="Иванов Иван Иванович"
           value={fullName}
+          error={errors.fullName}
           onChange={updateFormField}
-          required
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...AGE} checkedValue={age} onChange={updateFormField} />
-          <RadioInput {...MARITAL_STATUS} checkedValue={maritalStatus} onChange={updateFormField} />
+          <RadioInput {...AGE} error={errors.age} checkedValue={age} onChange={updateFormField} />
+          <RadioInput {...MARITAL_STATUS} error={errors.maritalStatus} checkedValue={maritalStatus} onChange={updateFormField} />
         </div>
-        <RadioInput {...HAVE_CHILDREN} checkedValue={haveChildren} onChange={updateFormField} />
+        <RadioInput {...HAVE_CHILDREN} error={errors.haveChildren} checkedValue={haveChildren} onChange={updateFormField} />
         <SingleLineInput
           legend="Страна и город проживания"
           name="placeOfLiving"
           placeholder="Россия, г. Москва, ул. Ботаническая, 10 кв. 1"
           value={placeOfLiving}
+          error={errors.placeOfLiving}
           onChange={updateFormField}
-          required
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...EMPLOYMENT} checkedValue={employment} onChange={updateFormField} />
-          <RadioInput {...TRIPS} checkedValue={trips} onChange={updateFormField} />
+          <RadioInput {...EMPLOYMENT} error={errors.employment} checkedValue={employment} onChange={updateFormField} />
+          <RadioInput {...TRIPS} error={errors.trips} checkedValue={trips} onChange={updateFormField} />
         </div>
         <div className="odds-form-line">
-          <RadioInput {...MONEY} checkedValue={money} onChange={updateFormField} />
-          <RadioInput {...RELATIVES} checkedValue={relatives} onChange={updateFormField} />
+          <RadioInput {...MONEY} error={errors.money} checkedValue={money} onChange={updateFormField} />
+          <RadioInput {...RELATIVES} error={errors.relatives} checkedValue={relatives} onChange={updateFormField} />
         </div>
         <MultiLineInput
           legend="Пожалуйста, укажите или предоставьте любую полезную, на Ваш взгляд, информацию (Ваши личностные преимущества), которая способствует увеличению оценки шансов на иммиграцию"

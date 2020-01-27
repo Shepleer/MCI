@@ -17,7 +17,7 @@
   justify-content: center;
   width: 100%;
 }
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 770px) {
   .services-row {
     display: none;
   }
@@ -57,7 +57,7 @@
   background-position: center;
   box-shadow: 0 4px 4px rgba(153, 153, 153, 0.25);
 }
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 770px) {
   .services-carousel {
     display: block;
   }
@@ -69,7 +69,7 @@
   align-items: center;
   justify-content: center;
 }
-@media screen and (min-width: 610px) {
+@media screen and (min-width: 770px) {
   .service {
     margin: 0 25px;
     width: 220px;

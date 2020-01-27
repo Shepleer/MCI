@@ -36,12 +36,14 @@ const renderHeader = ({
   );
 };
 
-const DatePickerInput = ({ selectedDate, onChange, legend, timePicker = false, fieldsetId=undefined }) => {
+const DatePickerInput = ({ selectedDate, onChange, error, legend, timePicker = false, fieldsetId=undefined }) => {
 
   const today = new Date();
   const maxDate = new Date().setFullYear(today.getFullYear() + 1);
 
   const placeholder = timePicker ? "00:00" : "ДД/ММ/ГГГГ";
+  const format = timePicker ? 'hh:mm' : 'dd/MM/yyyy';
+  const calendarClassName = timePicker ? '' : "calendar";
 
   return (
     <fieldset id={fieldsetId} className="input-fieldset">
@@ -52,10 +54,10 @@ const DatePickerInput = ({ selectedDate, onChange, legend, timePicker = false, f
         onChange={onChange}
         minDate={today}
         maxDate={maxDate}
-        dateFormat="dd/MM/yyyy"
+        dateFormat={format}
         locale="ru"
-        className={`date-input ${timePicker ? 'time-picker-image' : 'date-picker-image' }`}
-        calendarClassName="calendar"
+        className={`date-input ${timePicker ? 'time-picker-image' : 'date-picker-image'} ${error ? 'input-error-active' : ''}`}
+        calendarClassName={calendarClassName}
         dayClassName={() => "calendar-day"}
         showTimeSelect={timePicker}
         showTimeSelectOnly={timePicker}
@@ -63,6 +65,7 @@ const DatePickerInput = ({ selectedDate, onChange, legend, timePicker = false, f
         renderCustomHeader={renderHeader}
         placeholderText={placeholder}
       />
+      {error && <p className="input-error-label">{error}</p>}
     </fieldset>
   );
 };

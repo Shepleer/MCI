@@ -191,12 +191,12 @@ const Header = () => {
         </span>
       </nav>
       <nav className="main-nav">
-        <Link id="header-logo" className="content-link" to="">
+        <Link id="header-logo" className="content-link" to="/">
           <img src={logo} />
         </Link>
         <div>
           <div name="services" onMouseEnter={enableDisplay} className="content-link">
-            <Link name="services" to="/immigration">
+            <Link name="services" to="/">
               Услуги
             </Link>
             <img name="services" src={arrow} />
@@ -204,53 +204,53 @@ const Header = () => {
           <div className={`${visibleObjects.services ? null : "hidden"}`}>
             <div className={`detail-content-links`}>
               <div onMouseEnter={toggleSecondLevelNavigation} name="immigration" className="content-link detail-content-link">
-                <Link name="immigration" className="content-link" to="/immigration/expressEntry">Иммиграция</Link>
-                <img name="immigration" src={arrow} />
+                <Link name="immigration" className="content-link" to="/immigration">Иммиграция</Link>
+                <img className="detail-arrow" name="immigration" src={arrow} />
               </div>
               <div onMouseEnter={toggleSecondLevelNavigation} name="visa" className="content-link detail-content-link">
-                <Link name="visa" className="content-link" to="/immigration/expressEntry">Визы</Link>
-                <img name="visa" src={arrow} />
+                <Link name="visa" className="content-link" to="/visa">Визы</Link>
+                <img className="detail-arrow" name="visa" src={arrow} />
               </div>
-              <Link className="content-link detail-content-link" to="/immigration/businessImmigration">Оценка Рынка Труда (LMIA)</Link>
-              <Link className="content-link detail-content-link" to="/immigration/familySponsorship">Гуманитарная Программа</Link>
-              <Link className="content-link detail-content-link" to="/immigration/familySponsorship">Гражданство</Link>
+              <Link className="content-link detail-content-link" to="/lmia">Оценка Рынка Труда (LMIA)</Link>
+              <Link className="content-link detail-content-link" to="/humanities">Гуманитарная Программа</Link>
+              <Link className="content-link detail-content-link" to="/citizenship">Гражданство</Link>
             </div>
           </div>
         </div>
-        <Link className="content-link" to="/citizenship">
+        <Link className="content-link" to="/about">
           О нас
         </Link>
-        <Link className="content-link" to="/consultation">
+        <Link className="content-link" to="/reviews">
           Отзывы
         </Link>
         <div>
-          <Link className="content-link" to="/lmia">
+          <Link className="content-link" to="/news">
             новости
           </Link>
           <div className={`${visibleObjects.secondLevel === 'immigration' ? null : "hidden"} detail-content-links`}>
             <Link className="content-link detail-content-link" to="/immigration/expressEntry">Express Entry</Link>
             <Link className="content-link detail-content-link" to="/immigration/provincialPrograms">Провинциальные Программы</Link>
             <Link className="content-link detail-content-link" to="/immigration/businessImmigration">Бизнес Иммиграция</Link>
-            <Link className="content-link detail-content-link" to="/immigration/provincialPrograms">Семейное спонсорство</Link>
+            <Link className="content-link detail-content-link" to="/immigration/familySponsorship">Семейное спонсорство</Link>
           </div>
           <div className={`${visibleObjects.secondLevel === 'visa' ? null : "hidden"} detail-content-links`}>
-            <Link className="content-link detail-content-link" to="/immigration/expressEntry">Гостевые Визы</Link>
-            <Link className="content-link detail-content-link" to="/immigration/provincialPrograms">Студенческие Визы</Link>
-            <Link className="content-link detail-content-link" to="/immigration/businessImmigration">Рабочие Визы</Link>
-            <Link className="content-link detail-content-link" to="/immigration/expressEntry">Супер Визы</Link>
-            <Link className="content-link detail-content-link" to="/immigration/provincialPrograms">Продление и Восстановление Статуса</Link>
+            <Link className="content-link detail-content-link" to="/visa/guestVisa">Гостевые Визы</Link>
+            <Link className="content-link detail-content-link" to="/visa/studentVisa">Студенческие Визы</Link>
+            <Link className="content-link detail-content-link" to="/visa/workVisa">Рабочие Визы</Link>
+            <Link className="content-link detail-content-link" to="/visa/superVisa">Супер Визы</Link>
+            <Link className="content-link detail-content-link" to="/visa/restorationStatus">Продление и Восстановление Статуса</Link>
           </div>
         </div>
-        <Link className="content-link" to="/humanities">
+        <Link className="content-link" to="/questions">
           Вопросы
         </Link>
-        <Link className="content-link" to="/citizenship">
+        <Link className="content-link" to="/contact">
           Контакты
         </Link>
         <Link className="content-link" to="/consultation">
           Получить консультацию
         </Link>
-        <Link id="accent-link" to="">
+        <Link id="accent-link" to="/chance">
           БЕСПЛАТНАЯ ОЦЕНКА ШАНСОВ
         </Link>
         <div

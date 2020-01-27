@@ -13,3 +13,9 @@ a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: #BA3325;
 }
+
+@media screen and (max-width: 1120px){
+    main {
+        margin-top: 80px;
+    }
+}

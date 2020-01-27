@@ -1,9 +1,9 @@
 import React from "react";
 import PhoneInput from "react-phone-input-2";
 
-const PhoneInputWrapper = ({ legend, name='phone', required=true, value, onChange }) => {
+const PhoneInputWrapper = ({ legend, name='phone', error, required=true, value, onChange }) => {
   return (
-    <fieldset className="input-fieldset">
+    <fieldset className={`input-fieldset ${error ? 'phone-error-active' : ''}`}>
       {!!legend && <legend className="input-legend">{legend}</legend>}
       <PhoneInput
         value={value}
@@ -16,6 +16,7 @@ const PhoneInputWrapper = ({ legend, name='phone', required=true, value, onChang
           required: required,
         }}
       />
+      {error && <p className="input-error-label">{error}</p> }
     </fieldset>
   );
 };

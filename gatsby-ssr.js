@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
-const React = require("react")
+const React = require("react");
 
 // Adds a class name to the body element
 exports.onRenderBody = ({ setHeadComponents, setPreBodyComponents }, pluginOptions) => {

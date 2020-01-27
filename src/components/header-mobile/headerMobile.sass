@@ -1,12 +1,16 @@
 .header-mobile
+  position: fixed
   display: flex
   flex-direction: row
   justify-content: space-between
   align-items: center
   width: 100%
   height: 80px
+  top: 0
+  z-index: 500
+  background-color: #FFFFFF
   box-shadow: 0px 4px 25px rgba(189, 189, 189, 0.25)
-  @media screen and (min-width: 960px)
+  @media screen and (min-width: 1120px)
     display: none
   img
     margin: 0
@@ -117,6 +121,7 @@
   left: 50%
 
 .nav-item
+  height: 50px
   list-style: none
   background-color: #FFFFFF
   margin: 0
@@ -134,6 +139,7 @@
     height: 100vh
     overflow-y: auto
     overflow-x: hidden
+    background-color: #FFFFFF
     -webkit-overflow-scrolling: touch
     transition: 0.35s
   &-items
@@ -149,27 +155,39 @@
       transform: translateX(100%)
       transition: 0.3s
       visibility: hidden
-
       .nav-back-link
         display: flex
-        align-items: center
-        &::before
-          //content: $nav-icon-arrow-left
-          margin-right: 0.5em
+        flex-direction: row-reverse
+        border: none
+        width: 100%
+        background-color: #F7F7F7
     &-link
       display: flex
       justify-content: space-between
-      &::after
-        //content: $nav-icon-arrow-right
-        flex: 0 1 auto
+      padding-left: 0
+
+
     &.active
       > .nav-expand-content
+        background-color: #FFFFFF
         transform: translateX(0)
         visibility: visible
 
+.nav-link
+  display: flex
+  align-items: center
+  height: 100%
+  font-size: 14px
+  font-weight: 400
+  line-height: 16px
+  text-transform: uppercase
+  color: #2C384E
 
-
-
+.expand-link-wrapper
+  display: flex
+  align-items: center
+  justify-content: space-between
+  height: 100%
 
 
 .nav-drill

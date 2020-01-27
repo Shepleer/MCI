@@ -1,6 +1,6 @@
 import React from "react";
 
-const OptionalInput = ({ radioValue, id, name, checkedValue, value, onChange, label, placeholder }) => {
+const OptionalInput = ({ radioValue, id=undefined, error, name, checkedValue, value, onChange, label, placeholder }) => {
   return (
     <div className="optional-input-wrapper">
       <div className="radio-item">
@@ -9,7 +9,8 @@ const OptionalInput = ({ radioValue, id, name, checkedValue, value, onChange, la
         />
         <label htmlFor={id}>{label}</label>
       </div>
-      <input name={name} type="tel" placeholder={placeholder} className="one-line-input" value={value} disabled={checkedValue !== name} onChange={onChange} />
+      <input name={name} type="tel" placeholder={placeholder} className={`one-line-input ${error ? 'input-error-active' : ''}`} value={value} disabled={checkedValue !== name} onChange={onChange} />
+      {error && <p className="input-error-label">{error}</p>}
     </div>
   );
 };
