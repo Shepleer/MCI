@@ -131,6 +131,8 @@ const ConsultationForm = ({ title }) => {
     telegram
   } = fields;
 
+  console.log(process.env.NETLIFY);
+
   return (
     <div className="consultation-form-wrapper">
       <h4 id="consultation-form-title" className="consultation-form-label">{title}</h4>
