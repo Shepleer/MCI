@@ -116,7 +116,7 @@ const ConsultationForm = ({ title }) => {
     await fetch("https://epic-shockley-4c3cca.netlify.com", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "consultation", ...fields, "orderID": data.orderID }),
+      body: encode({ "form-name": "Consultation", ...fields, "orderID": data.orderID }),
     });
   }, [fields]);
 
@@ -134,7 +134,7 @@ const ConsultationForm = ({ title }) => {
   return (
     <div className="consultation-form-wrapper">
       <h4 id="consultation-form-title" className="consultation-form-label">{title}</h4>
-      <form name="consultation" className="consultation-form" method="POST">
+      <form name="Consultation" className="consultation-form" method="POST">
         <input type="hidden" name="form-name" value="Consultation" />
         <input type="hidden" name="fullName" />
         <input type="hidden" name="email" />
