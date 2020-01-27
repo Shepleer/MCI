@@ -17,6 +17,10 @@ const ConsultationForm = ({ title }) => {
   const [fields, setFields] = useState({
     date: null,
     time: null,
+    whatsApp: '',
+    telegram: '',
+    skype: '',
+    viber: '',
   });
   const [selectedContactVariant, setContactVariant] = useState("whatsApp");
   const [errors, setErrors] = useState({});
