@@ -79,7 +79,7 @@ const HeaderMobile = () => {
               className="expand-link-wrapper on-content-layout"
               onClick={openLevel}
             >
-              <Link name="services" className="nav-link nav-expand-link" to="/">
+              <Link name="services" className="nav-link nav-expand-link" to="/services">
                 Услуги
               </Link>
               <img name="services" src={collapseArrow} />

@@ -10,6 +10,18 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - file: "static/content/services/services.md"
+        label: "Services Page"
+        name: "services"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "services-page-content" }
+          - { label: "title description", name: "titleDescription", widget: "text", required: false }
+          - { label: "immigration description", name: "immigrationDescription", widget: "string" }
+          - { label: "visa description", name: "visaDescription", widget: "string" }
+          - { label: "lmia description", name: "lmiaDescription", widget: "string" }
+          - { label: "humanities description", name: "humanitiesDescription", widget: "string" }
+          - { label: "citizenship description", name: "citizenshipDescription", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
       - file: "static/content/citizenship/citizenship.md"
         label: "Citizenship Page"
         name: "citizenship"

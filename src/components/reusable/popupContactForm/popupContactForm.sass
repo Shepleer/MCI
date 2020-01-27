@@ -26,8 +26,7 @@
 
 #main-layer
   z-index: 103
-  max-width: 850px
-  max-height: 434px
+  top: 50%
   margin: auto
 
 .popup-hidden
@@ -35,3 +34,10 @@
     visibility: hidden
     opacity: 0
     transition: opacity 700ms, visibility 0s 400ms ease-in
+
+@media screen and (max-width: 1280px)
+  #main-layer
+    width: 770px
+@media screen and (max-width: 820px)
+  #main-layer
+    width: 90%

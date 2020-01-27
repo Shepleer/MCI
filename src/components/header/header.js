@@ -196,7 +196,7 @@ const Header = () => {
         </Link>
         <div>
           <div name="services" onMouseEnter={enableDisplay} className="content-link">
-            <Link name="services" to="/">
+            <Link name="services" to="/services">
               Услуги
             </Link>
             <img name="services" src={arrow} />
