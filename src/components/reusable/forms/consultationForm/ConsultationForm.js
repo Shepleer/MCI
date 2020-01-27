@@ -124,6 +124,15 @@ const ConsultationForm = ({ title }) => {
     });
   }, [fields]);
 
+  const sss = async (e) => {
+    e.preventDefault();
+    await fetch("https://epic-shockley-4c3cca.netlify.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "Consultation", ...fields, "orderID": "asdasdas" }),
+    });
+  }
+
   const {
     fullName,
     email,
@@ -144,10 +153,10 @@ const ConsultationForm = ({ title }) => {
         <input type="hidden" name="email" />
         <input type="hidden" name="date" />
         <input type="hidden" name="time" />
-        <input type="hidden" name="whatsApp" />
-        <input type="hidden" name="viber" />
-        <input type="hidden" name="skype" />
-        <input type="hidden" name="telegram" />
+        <input type="hidden" name="whatsApp" value="none" />
+        {/*<input type="hidden" name="viber" value="none" />*/}
+        {/*<input type="hidden" name="skype" value="none" />*/}
+        {/*<input type="hidden" name="telegram" value="none" />*/}
         <input type="hidden" name="orderID" />
         <div className="consultation-form-row">
           <SingleLineInput
