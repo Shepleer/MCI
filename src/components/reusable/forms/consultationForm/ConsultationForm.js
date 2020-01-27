@@ -131,8 +131,6 @@ const ConsultationForm = ({ title }) => {
     telegram
   } = fields;
 
-  console.log(process.env.NETLIFY);
-
   return (
     <div className="consultation-form-wrapper">
       <h4 id="consultation-form-title" className="consultation-form-label">{title}</h4>
@@ -249,7 +247,7 @@ const ConsultationForm = ({ title }) => {
         <div className="paypal-button-container">
           <PayPalButton
             options={{
-              clientId: process.env.PAYPAL_CLIENT_ID,
+              clientId: process.env.GATSBY_PAYPAL_CLIENT_ID,
               disableFunding: "card",
               currency: "CAD",
             }}
