@@ -13,6 +13,13 @@ import {
 
 const fieldsToValidate = ['fullName', 'email', 'date', 'time'];
 
+const defaultOptionals = {
+  whatsApp: 'none',
+  telegram: 'none',
+  skype: 'none',
+  viber: 'none',
+};
+
 const ConsultationForm = ({ title }) => {
   const [fields, setFields] = useState({
     date: null,
@@ -120,7 +127,7 @@ const ConsultationForm = ({ title }) => {
     await fetch("https://epic-shockley-4c3cca.netlify.com", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "Consultation", ...fields, "orderID": data.orderID }),
+      body: encode({ "form-name": "Consultation", "orderID": data.orderID, ...fields }),
     });
   }, [fields]);
 
@@ -138,7 +145,7 @@ const ConsultationForm = ({ title }) => {
   return (
     <div className="consultation-form-wrapper">
       <h4 id="consultation-form-title" className="consultation-form-label">{title}</h4>
-      <form name="Consultation" className="consultation-form" method="POST">
+      <form name="Consultation" className="consultation-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="Consultation" />
         <input type="hidden" name="fullName" />
         <input type="hidden" name="email" />

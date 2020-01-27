@@ -82,51 +82,6 @@ const ContactForm = ({ popup, onPopupClose, formTitle }) => {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
-      {/*{popup &&*/}
-      {/*<p className="">{formTitle}</p>*/}
-      {/*}*/}
-      {/*{popup &&*/}
-      {/*<button onClick={onPopupClose} type="button" className="close-form-cross">*/}
-      {/*  <span/>*/}
-      {/*  <span/>*/}
-      {/*</button>*/}
-      {/*}*/}
-      {/*<div className="contact-form-main">*/}
-      {/*  <div className="contact-info">*/}
-      {/*    <input type="hidden" name="form-name" value="Immigration Form" />*/}
-      {/*    <input type="hidden" name="fullName" />*/}
-      {/*    <input type="hidden" name="email" />*/}
-      {/*    <input type="hidden" name="comment" />*/}
-      {/*    <SingleLineInput*/}
-      {/*      onChange={updateFormField}*/}
-      {/*      value={fullName}*/}
-      {/*      legend="Ваша фамилия имя и отчество"*/}
-      {/*      name="fullName"*/}
-      {/*      placeholder="Иванов Иван Иванович"*/}
-      {/*      required*/}
-      {/*      fill*/}
-      {/*    />*/}
-      {/*    <SingleLineInput*/}
-      {/*      legend="Контактный E-mail"*/}
-      {/*      name="email"*/}
-      {/*      placeholder="you@email.com"*/}
-      {/*      value={email}*/}
-      {/*      onChange={updateFormField}*/}
-      {/*      required*/}
-      {/*      fill*/}
-      {/*    />*/}
-      {/*  </div>*/}
-      {/*  <MultiLineInput*/}
-      {/*    legend="Сообщение"*/}
-      {/*    name="comment"*/}
-      {/*    value={comment}*/}
-      {/*    onChange={updateFormField}*/}
-      {/*    placeholder="Оставьте сообщение"*/}
-      {/*  />*/}
-      {/*</div>*/}
-      {/*<div className="submit-button-field">*/}
-      {/*  <SubmitButton id="contact-form-submit-button" title="ОТПРАВИТЬ" onSubmit={handleSubmit} transparent/>*/}
-      {/*</div>*/}
       <input type="hidden" name="form-name" value="Contact form" />
       <input type="hidden" name="fullName" />
       <input type="hidden" name="email" />
