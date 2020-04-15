@@ -26,7 +26,7 @@ const FeedbackCall = () => {
     e => {
       clearError()
       if (validateForm()) {
-        fetch("https://epic-shockley-4c3cca.netlify.com", {
+        fetch("https://mymci.ca/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({ "form-name": "Contact phone", phone: phone }),

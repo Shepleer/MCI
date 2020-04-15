@@ -124,7 +124,7 @@ const ConsultationForm = ({ title }) => {
 
     const details = await actions.order.capture();
 
-    await fetch("https://epic-shockley-4c3cca.netlify.com", {
+    await fetch("https://mymci.ca/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "Consultation", "orderID": data.orderID, ...fields }),
