@@ -4,38 +4,40 @@ import "./phoneInput.sass"
 import SubmitButton from "../inputs/submitButton/SubmitButton"
 import PhoneInput from "react-phone-input-2"
 import { validatePhone, encode } from "../../../../utils/utils"
+import { navigate } from '@reach/router';
 
 const FeedbackCall = () => {
-  const [phone, setPhone] = useState("+")
-  const [error, setError] = useState(null)
+  const [phone, setPhone] = useState("+");
+  const [error, setError] = useState(null);
 
   const validateForm = useCallback(() => {
-    const isValid = validatePhone(phone)
+    const isValid = validatePhone(phone);
     if (!isValid) {
-      setError("Пожалуйста, заполните это поле\n")
+      setError("Пожалуйста, заполните это поле\n");
       return false
     }
     return true
-  }, [phone, setError])
+  }, [phone, setError]);
 
   const clearError = useCallback(() => {
-    setError(null)
-  }, [setError])
+    setError(null);
+  }, [setError]);
 
   const handleSubmit = useCallback(
-    e => {
-      clearError()
+    async e => {
+      clearError();
       if (validateForm()) {
-        fetch("https://mymci.ca/", {
+        await fetch("https://mymci.ca/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: encode({ "form-name": "Contact phone", phone: phone }),
-        })
+        });
+        await navigate('/');
       }
-      e.preventDefault()
+      e.preventDefault();
     },
     [phone]
-  )
+  );
 
   return (
     <div className="feedback-call-container">
@@ -71,6 +73,6 @@ const FeedbackCall = () => {
       </p>
     </div>
   )
-}
+};
 
 export default FeedbackCall

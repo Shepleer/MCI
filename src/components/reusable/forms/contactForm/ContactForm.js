@@ -5,6 +5,7 @@ import SingleLineInput from "../inputs/SingleLineInput/SingleLineImput"
 import SubmitButton from "../inputs/submitButton/SubmitButton"
 import MultiLineInput from "../inputs/MultiLineInput/MultiLineInput"
 import { encode, errorRequiredLabel, isValid, validateEmail, validatePhone } from "../../../../utils/utils";
+import { navigate } from '@reach/router';
 import OddsFormWrapper from "../oddsForm/OddsFormWrapper"
 import AccentButton from "../../AccentButton"
 
@@ -59,18 +60,19 @@ const ContactForm = ({ popup, onPopupClose, formTitle }) => {
     return isFormValid;
   }, [fields, setError, errors]);
 
-  const handleSubmit = useCallback(e => {
+  const handleSubmit = useCallback(async e => {
     e.preventDefault();
     clearErrors();
     if (!validateForm()) {
       return;
     }
 
-    fetch("https://mymci.ca/", {
+    await fetch("https://mymci.ca/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "Contact form", ...fields }),
-    })
+    });
+    await navigate('/');
   }, [fields]);
 
   return (

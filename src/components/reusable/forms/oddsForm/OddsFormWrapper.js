@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import './odds-form.sass';
 import SubmitButton from '../inputs/submitButton/SubmitButton';
 

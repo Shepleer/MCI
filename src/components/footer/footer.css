@@ -1,3 +1,20 @@
+.footer-svg-button:hover g path {
+  fill: #C6392B;
+}
+
+.footer-svg-button:hover path {
+  fill: #C6392B;
+}
+
+.svg-layout {
+  margin-right: 10px;
+  margin-bottom: 1px;
+}
+
+#viber-svg:hover path:nth-child(1) {
+  fill: #C6392B;
+}
+
 .footer-contact-link {
   font-size: 13px;
   line-height: 15px;

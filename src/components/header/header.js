@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react"
 import "./header.sass"
 import { Link } from "gatsby"
 import logo from "../../images/logo.svg"
-import AccentButton from "../reusable/AccentButton"
 import arrow from "./../../images/pin.svg"
 
 const Header = () => {
@@ -38,57 +37,6 @@ const Header = () => {
 
   return (
     <header onMouseLeave={resetDisplay} className="navigation-header">
-      {/*<nav className="meta-nav separator on-content-layout">*/}
-      {/*  <div className="meta-links">*/}
-      {/*    <Link to="/">*/}
-      {/*      <img src={logo} />*/}
-      {/*    </Link>*/}
-      {/*    <Link className="meta-link" to="/about">О нас</Link>*/}
-      {/*    <Link className="meta-link" to="/reviews">Отзывы</Link>*/}
-      {/*    <Link className="meta-link" to="/news">Новости</Link>*/}
-      {/*    <Link className="meta-link" to="/questions">Вопросы</Link>*/}
-      {/*    <Link className="meta-link" to="/contact">Контакты</Link>*/}
-      {/*  </div>*/}
-      {/*  <div className="chance-link">*/}
-      {/*    <h3 className="phone-number">+7901 703-01-04</h3>*/}
-      {/*    <AccentButton id="header-accent-button" title="БЕСПЛАТНАЯ ОЦЕНКА ШАНСОВ" to="/chance" />*/}
-      {/*  </div>*/}
-      {/*</nav>*/}
-      {/*<nav onMouseLeave={resetDisplay} className="content-nav">*/}
-      {/*  <div className="content-links on-content-layout">*/}
-      {/*    <div>*/}
-      {/*      <div name="immigration" onMouseEnter={toggleDisplay} className="content-link">*/}
-      {/*        <Link name="immigration" to="/immigration">Иммиграция</Link>*/}
-      {/*        <img name="immigration" src={arrow} />*/}
-      {/*      </div>*/}
-      {/*      <div className={`${visibleObjects.immigration ? null : 'hidden'} detail-content-links`}>*/}
-      {/*        <Link className="content-link" to="/immigration/expressEntry">Express Entry</Link>*/}
-      {/*        <Link className="content-link" to="/immigration/provincialPrograms">Провинциальные Программы</Link>*/}
-      {/*        <Link className="content-link" to="/immigration/businessImmigration">Бизнес Иммиграция</Link>*/}
-      {/*        <Link className="content-link" to="/immigration/familySponsorship">Семейное спонсорство</Link>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <div name="visa" onMouseEnter={toggleDisplay} className="content-link">*/}
-      {/*        <Link name="visa" to="/visa">Визы</Link>*/}
-      {/*        <img name="visa" src={arrow} />*/}
-      {/*      </div>*/}
-      {/*      <div className={`${visibleObjects.visa ? null : 'hidden'} detail-content-links`}>*/}
-      {/*        <Link className="content-link" to="/visa/guestVisa">Гостевые Визы</Link>*/}
-      {/*        <Link className="content-link" to="/visa/studentVisa">Студенческие Визы</Link>*/}
-      {/*        <Link className="content-link" to="/visa/workVisa">Рабочие Визы</Link>*/}
-      {/*        <Link className="content-link" to="/visa/superVisa">Супер Визы</Link>*/}
-      {/*        <Link className="content-link" to="/visa/restorationStatus">Продление и Восстановление Статуса</Link>*/}
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*    <Link className="content-link" to="/lmia">Оценка Рынка Труда (LMIA)</Link>*/}
-      {/*    <Link className="content-link" to="/humanities">Гуманитарная Программа</Link>*/}
-      {/*    <Link className="content-link" to="/citizenship">Гражданство</Link>*/}
-      {/*    <Link className="content-link" to="/consultation">Получить консультацию</Link>*/}
-      {/*  </div>*/}
-      {/*  <div className={`${visibleObjects.background ? null : 'hidden'} detail-background`} />*/}
-      {/*</nav>*/}
-
       <nav className="meta-nav on-content-layout">
         <span>
           <a href="/">
@@ -146,29 +94,11 @@ const Header = () => {
             </svg>
           </a>
           <a className="footer-contact-link" href="tel:+79017030104">
-            +1 (416) 800-89-66
+            +1 (647) 515-6748
           </a>
         </span>
         <span>
-          <a className="footer-contact-link" href="">
-            <svg
-              className="footer-svg-button svg-layout"
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.0262 8.68165C14.0217 8.70637 14.0139 8.65933 14.0262 8.68165C14.0987 8.28648 14.1368 7.88213 14.1368 7.47787C14.1368 6.58145 13.9614 5.7119 13.6146 4.89316C13.2801 4.1024 12.8015 3.39223 12.1913 2.78249C11.5821 2.17266 10.8714 1.69416 10.081 1.35967C9.2626 1.01335 8.39296 0.837823 7.49663 0.837823C7.07417 0.837823 6.65103 0.877476 6.23921 0.956612C6.23835 0.956784 6.23612 0.957042 6.23612 0.957042C5.6711 0.656634 5.03578 0.496216 4.39256 0.496216C3.34251 0.496216 2.35528 0.905114 1.61285 1.64781C0.870495 2.39025 0.461426 3.37756 0.461426 4.42753C0.461426 5.09589 0.633431 5.75293 0.955983 6.3334C0.89058 6.7096 0.85599 7.09403 0.85599 7.47787C0.85599 8.37446 1.03151 9.24392 1.37827 10.0628C1.71232 10.8539 2.19109 11.5635 2.80074 12.1733C3.41091 12.7831 4.12056 13.2624 4.91184 13.596C5.73032 13.943 6.60021 14.1186 7.49654 14.1186C7.88673 14.1186 8.27778 14.083 8.65955 14.0153C9.24766 14.348 9.91354 14.5248 10.5935 14.5248C11.6433 14.5248 12.6301 14.1167 13.3726 13.3737C14.1152 12.6317 14.5239 11.6442 14.5239 10.5942C14.5239 9.92362 14.3511 9.26444 14.0262 8.68165ZM7.52307 11.5446C5.16401 11.5446 4.10855 10.3849 4.10855 9.51558C4.10855 9.06986 4.43771 8.75726 4.89132 8.75726C5.90095 8.75726 5.63951 10.2069 7.52307 10.2069C8.48737 10.2069 9.01978 9.68329 9.01978 9.14754C9.01978 8.82524 8.86082 8.46801 8.22585 8.31154L6.12763 7.78772C4.43771 7.36397 4.13112 6.45039 4.13112 5.59165C4.13112 3.80869 5.80988 3.13929 7.38634 3.13929C8.83859 3.13929 10.5505 3.9419 10.5505 5.01152C10.5505 5.46986 10.1536 5.73636 9.70016 5.73636C8.83859 5.73636 8.99704 4.54383 7.26154 4.54383C6.4004 4.54383 5.92335 4.93384 5.92335 5.49183C5.92335 6.04887 6.60356 6.2268 7.19408 6.3613L8.74718 6.70608C10.4484 7.08511 10.8797 8.07834 10.8797 9.0139C10.8799 10.4627 9.76771 11.5446 7.52307 11.5446Z"
-                fill="#8C939F"
-              />
-            </svg>
-            info@maplecanada.com
-          </a>
-        </span>
-        <span>
-          <a className="footer-contact-link" href="">
+          <a className="footer-contact-link" href="mailto: info@mymci.ca">
             <svg
               className="footer-svg-button svg-layout"
               width="15"
@@ -186,7 +116,7 @@ const Header = () => {
                 fill="#8C939F"
               />
             </svg>
-            info@maplecanada.com
+            info@mymci.ca
           </a>
         </span>
       </nav>

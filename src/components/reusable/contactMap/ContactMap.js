@@ -180,7 +180,7 @@ const ContactMap = () => {
   return (
     <div className="contact-map" >
       <p className="contact-map-label">Контактная информация</p>
-      <ContactCard adress="310 Fairway Road South, PO Box 45041, Kitchener, ON N2C 1X0" phone="647-515-6748 (Viber, WhatsApp, Telegram)" email="info@mymci.ca" />
+      <ContactCard adress="310 Fairway Road South, PO Box 45041, Kitchener, ON N2C 1X0" phone="+1 (647) 515-6748 (Viber, WhatsApp, Telegram)" email="info@mymci.ca" />
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.GATSBY_GOOGLE_MAP_API_KEY }}
         defaultCenter={defaultProps.center}

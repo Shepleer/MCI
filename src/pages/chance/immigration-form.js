@@ -6,6 +6,7 @@ import SingleLineInput from "../../components/reusable/forms/inputs/SingleLineIn
 import RadioInput from "../../components/reusable/forms/inputs/RadioInput/RadioInput"
 import MultiLineInput from "../../components/reusable/forms/inputs/MultiLineInput/MultiLineInput"
 import FeedbackCall from "../../components/reusable/forms/feedbackCall/FeedbackCall"
+import { navigate } from '@reach/router';
 import PhoneInput from "react-phone-input-2"
 import {
   encode,
@@ -172,7 +173,7 @@ const ImmigrationForm = () => {
   const [errors, setErrors] = useState({})
 
   const submitForm = useCallback(
-    event => {
+    async event => {
       event.preventDefault()
       clearErrors()
 
@@ -180,11 +181,12 @@ const ImmigrationForm = () => {
         return
       }
 
-      fetch("https://mymci.ca/", {
+      await fetch("https://mymci.ca/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "Immigration Form", ...fields }),
-      })
+      });
+      await navigate('/');
     },
     [fields]
   )
@@ -309,7 +311,12 @@ const ImmigrationForm = () => {
           fill
         />
         <div className="odds-form-line">
-          <RadioInput {...AGE} error={errors.age} checkedValue={age} onChange={updateFormField} />
+          <RadioInput
+            {...AGE}
+            error={errors.age}
+            checkedValue={age}
+            onChange={updateFormField}
+          />
           <RadioInput
             {...MARITAL_STATUS}
             error={errors.maritalStatus}

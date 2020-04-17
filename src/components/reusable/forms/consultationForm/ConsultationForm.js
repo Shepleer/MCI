@@ -4,6 +4,7 @@ import OptionalInput from "../inputs/optionalInputs/OptionalInput";
 import "./consultationForm.sass";
 import DatePickerInput from "../inputs/datePicker/DatePickerInput";
 import { PayPalButton } from "react-paypal-button-v2";
+import { navigate } from '@reach/router';
 import {
   encode,
   errorRequiredLabel,
@@ -129,6 +130,7 @@ const ConsultationForm = ({ title }) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "Consultation", "orderID": data.orderID, ...fields }),
     });
+    await navigate('/');
   }, [fields]);
 
   const {

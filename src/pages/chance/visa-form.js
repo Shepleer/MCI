@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { navigate } from '@reach/router';
 import Layout from '../../components/layout';
 import DescriptionTitle from '../../components/DescriptionWrapper/DescriptionTitle';
 import FeedbackCall from '../../components/reusable/forms/feedbackCall/FeedbackCall';
@@ -131,18 +132,19 @@ const VisaForm = () => {
   });
   const [errors, setErrors] = useState({});
 
-  const submitForm = useCallback(event => {
+  const submitForm = useCallback(async event => {
     event.preventDefault();
     clearErrors();
     if (!validateForm()) {
       return;
     }
 
-    fetch("https://mymci.ca/", {
+    await fetch("https://mymci.ca/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "Visa Form", ...fields }),
     });
+    await navigate('/');
   }, [fields]);
 
   const updateFormField = useCallback(e => {
